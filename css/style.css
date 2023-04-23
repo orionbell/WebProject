@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+:root {
+    --color1: #5BC0EB;
+    --color2: #FDE74C;
+    --color3: #9BC53D;
+    --color4: #C3423F;
+    --color5: #111111;
+    --color6: #000;
+}
+
+body {
+    font-size: 1.1rem;
+    font-family: 'Ubuntu Mono', monospace;
+    background-color: var(--color5);
+}

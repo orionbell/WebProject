@@ -1,0 +1,100 @@
+<?php
+    include_once('header.php');
+?>
+
+<h2 class="subheader">מערכות הפעלה</h2>
+<main class="container">
+    <a class="course_link" style="text-decoration:none;" href="#?course=debian">
+        <div class="topic_container" style="color:var(--color2)">
+                <img src="imgs/debian.png" alt="linux" class="logo">
+                <p class="title">Debian linux</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=windows">
+        <div class="topic_container" style="color:var(--color1)">
+            <img src="imgs/windows.png" alt="linux" class="logo">
+            <p class="title">Windows</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=redhat">
+        <div class="topic_container" style="color:var(--color4)">
+            <img src="imgs/redhat.png" alt="linux" class="logo" style="margin-top:1.2em;margin-bottom:0.95em;" >
+            <p class="title">Redhat linux</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=arch">
+        <div class="topic_container" style="color:var(--color3)">
+            <img src="imgs/arch.png" alt="linux" class="logo">
+            <p class="title">Arch linux</p>
+        </div>
+    </a>
+</main>
+<h2 class="subheader">שפות תכנות</h2>
+<main class="container">
+    <a class="course_link" style="text-decoration:none;" href="#?course=python">
+        <div class="topic_container" style="color:var(--color1)">
+            <img src="imgs/python.png" alt="linux" class="logo">
+            <p class="title">Python</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=java">
+        <div class="topic_container" style="color:var(--color4)">
+            <img src="imgs/java.png" alt="linux" class="logo">
+            <p class="title">Java</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=c">
+        <div class="topic_container" style="color:var(--color1)">
+            <img src="imgs/c.png" alt="linux" class="logo" >
+            <p class="title">C</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=js">
+        <div class="topic_container" style="color:var(--color2)">
+            <img src="imgs/js.png" alt="linux" class="logo">
+            <p class="title">Javascript</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=php">
+        <div class="topic_container" style="color:var(--color3)">
+            <img src="imgs/php.png" alt="linux" class="logo" style="margin-top:1.5em;">
+            <p class="title">Php</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=mysql">
+        <div class="topic_container" style="color:var(--color2)">
+            <img src="imgs/mysql.png" alt="linux" class="logo" style="margin-top:1.2em;">
+            <p class="title">Mysql</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=nasm">
+        <div class="topic_container" style="color:var(--color1)">
+            <img src="imgs/nasm.png" alt="linux" class="logo" style="margin-top:2.5em;">
+            <p class="title">Nasm</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=csshtml">
+        <div class="topic_container" style="color:var(--color4)">
+            <img src="imgs/csshtml.png" alt="linux" class="logo" style="margin-top:1.4em;">
+            <p class="title">Css and Html</p>
+        </div>
+    </a>
+</main>
+<h2 class="subheader">Others</h2>
+<main class="container">
+    <a class="course_link" style="text-decoration:none;" href="#?course=networking">
+        <div class="topic_container" style="color:var(--color1);">
+            <img src="imgs/cisco.png" alt="linux" class="logo" style="margin-top:3.5em;">
+            <p class="title">Networking</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="#?course=ehacking">
+        <div class="topic_container" style="color:var(--color4)">
+            <img src="imgs/hacking.png" alt="linux" class="logo">
+            <p class="title">Ethical hacking</p>
+        </div>
+    </a>
+</main>
+<?php
+    include_once('footer.php');
+?>

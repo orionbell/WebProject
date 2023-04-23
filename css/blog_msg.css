@@ -1,0 +1,134 @@
+.blog_container {
+    direction: rtl;
+    display: flex;
+    margin-top: 6em;
+}
+
+.msg_container {
+    width: 60%;
+    margin-right: 6em;
+    background-color: var(--color6);
+    min-height: 100em;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    direction: rtl;
+    border-radius: 1em;
+    box-shadow: 0 0 1.5em white;
+}
+
+.msg_content {
+    background: linear-gradient(30deg, var(--color1), var(--color4));
+    border: 0.2em solid white;
+    box-shadow: 0 0 1.5em white;
+    border-radius: 1em;
+    max-width: 70%;
+    min-width: 60%;
+    margin: 1em 4em;
+    direction: ltr;
+}
+
+.msg_content .content_img {
+    min-width: 10em;
+    max-width: 20em;
+    margin: 1em;
+    border-radius: 1em;
+    border: 0.15em solid white;
+}
+
+.msg_content .msg_img {
+    margin: 1em;
+    width: 5em;
+    border-radius: 10em;
+    border: 0.15em solid white;
+}
+
+.msg_content_text {
+    display: flex;
+}
+
+.msg_content .msg_content_title {
+    margin: 2em;
+}
+
+.msg_content_text {
+    flex-direction: column;
+}
+
+.msg_content p {
+    margin: 2em;
+    font-size: 1.1rem;
+}
+
+.user_form {
+    background: linear-gradient(30deg, var(--color1), var(--color4));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 4em;
+    margin-left: 1em;
+    border-radius: 0.2em;
+    padding: 2em;
+    border: 0.2em solid white;
+    box-shadow: 0 0 1.5em white;
+}
+
+.user_inputs {
+    color: var(--color6);
+    border-radius: 0.2em;
+    width: 25em;
+    margin: 1em auto;
+    outline: none;
+    border: none;
+    padding: 0.4em;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.text_input {
+    min-height: 8em;
+    overflow: hidden;
+}
+
+@media (max-width:800px) {
+    .msg_container {
+        width: 90%;
+        margin: 1em auto;
+    }
+
+    .msg_content {
+        margin: 1em auto;
+        width: 85%;
+    }
+
+    .msg_content .content_img {
+        margin: 1em auto;
+        width: 10em;
+    }
+}
+
+@media (max-width:1200px) {
+    .blog_container {
+        flex-direction: column;
+    }
+
+    .user_form {
+        margin: 1em auto;
+        padding: 1em;
+        margin: 1em 0;
+    }
+
+    .user_inputs {
+        width: 15em;
+        max-width: 20em;
+    }
+
+    .msg_container {
+        width: 90%;
+        margin: 1em auto;
+    }
+
+    .user_msg_box {
+        margin: 0 4em;
+    }
+}
