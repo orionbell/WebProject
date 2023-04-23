@@ -2,7 +2,7 @@
     include_once('header.php');
 ?>
 <?php 
-    $lang = $_GET[1];
+    $lang = $_GET[1];//need to switch that to the name of the param
     $json = file_get_contents('./courses_json/'.$lang.'_course.json');
     echo "the lang is ".$lang;
 ?>
