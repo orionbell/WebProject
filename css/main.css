@@ -64,3 +64,11 @@
 .course_link{
     margin: 0 auto;
 }
+
+.sub{
+    margin: 2em;
+}
+.description{
+    padding: 1.2em;
+    margin-bottom: 1em;
+}
