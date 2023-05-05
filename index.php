@@ -49,7 +49,7 @@
             <p class="title">C</p>
         </div>
     </a>
-    <a class="course_link" style="text-decoration:none;" href="courses.php?course=js">
+    <a class="course_link" style="text-decoration:none;" href="courses.php?course=javascript">
         <div class="topic_container" style="color:var(--color2)">
             <img src="imgs/js.png" alt="linux" class="logo">
             <p class="title">Javascript</p>
@@ -80,7 +80,7 @@
         </div>
     </a>
 </main>
-<h2 class="subheader">Others</h2>
+<h2 class="subheader">אחר</h2>
 <main class="container">
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=networking">
         <div class="topic_container" style="color:var(--color1);">
@@ -92,6 +92,12 @@
         <div class="topic_container" style="color:var(--color4)">
             <img src="imgs/hacking.png" alt="linux" class="logo">
             <p class="title">Ethical hacking</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="courses.php?course=git">
+        <div class="topic_container" style="color:var(--color4)">
+            <img src="imgs/git.png" alt="linux" class="logo">
+            <p class="title" style="margin-top:0.6em;">Git and Github</p>
         </div>
     </a>
 </main>

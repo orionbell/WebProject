@@ -1,28 +1,78 @@
 <?php 
     include_once('header.php');
-    $topic = $_GET["topic"];
 ?>
-<main class="container sub">
+<main class="right_menu">
+    <ul class="menu">
+        <li class="menu_item"><a href="resource.php?topic=debian" class="menu_link">Debian</a></li>
+        <li class="menu_item"><a href="resource.php?topic=windows" class="menu_link">Windows</a></li>
+        <li class="menu_item"><a href="resource.php?topic=redhat" class="menu_link">Redhat</a></li>
+        <li class="menu_item"><a href="resource.php?topic=arch" class="menu_link">Arch</a></li>
+        <li class="menu_item"><a href="resource.php?topic=python" class="menu_link">Python</a></li>
+        <li class="menu_item"><a href="resource.php?topic=c" class="menu_link">C</a></li>
+        <li class="menu_item"><a href="resource.php?topic=java" class="menu_link">Java</a></li>
+        <li class="menu_item"><a href="resource.php?topic=javascript" class="menu_link">Javascript</a></li>
+        <li class="menu_item"><a href="resource.php?topic=php" class="menu_link">Php</a></li>
+        <li class="menu_item"><a href="resource.php?topic=mysql" class="menu_link">Mysql</a></li>
+        <li class="menu_item"><a href="resource.php?topic=assembly" class="menu_link">Assembly</a></li>
+        <li class="menu_item"><a href="resource.php?topic=html" class="menu_link">Html</a></li>
+        <li class="menu_item"><a href="resource.php?topic=css" class="menu_link">Css</a></li>
+        <li class="menu_item"><a href="resource.php?topic=networking" class="menu_link">Networking</a></li>
+        <li class="menu_item"><a href="resource.php?topic=ethicalhacking" class="menu_link">Ethical hacking</a></li>
+        <li class="menu_item"><a href="resource.php?topic=git" class="menu_link">Git</a></li>
+    </ul>
+</main>
+<h2 class="subheader">סרטונים</h2>
+<main class="videos_container">
 <?php
-
-    // $json = file_get_contents('./resource/'.$topic.'.json');
-    // $json_decoded = json_decode($json, true);
-    
-    // for ($i = 0; $i < count($json_decoded); $i++) {
-    //     $jsonObj = $json_decoded[$i];
-    //     $item = '
-    //     <a class="course_link" style="text-decoration:none;" href="'.$jsonObj["page_link"].'">
-    //         <div class="topic_container" style="color:'.$jsonObj['color'].'">
-    //             <img src="imgs/'.$jsonObj["image"].'" alt="linux" class="logo">
-    //             <p class="title sub">'.$jsonObj["title"].'</p>
-    //         </div>
-    //     </a>
-    //     ';
+if($_GET["topic"] != ""){
+    $topic = $_GET["topic"];
+    $json = file_get_contents('./resources/'.$topic.'/youtube.json');
+    $json_decoded = json_decode($json, true);
+    for ($i = 0; $i < count($json_decoded); $i++) {
+        $jsonObj = $json_decoded[$i];
+        $item = '
+        <div class="video_container">    
+        <a href="https://www.youtube.com/embed/'.$jsonObj["video_id"].'" target="_BLANK"><img src="https://img.youtube.com/vi/'.$jsonObj["video_id"].'/0.jpg" /></a>
+            <p class="video_title">'.$jsonObj["title"].'</p>
+        </div>  
+            ';
         
-    //     echo $item;
-    // }
+        echo $item;
+    }
+    }else{
+        echo rand(1,20);
+        //need to pick random content to present with the rand() function .
+    }
 ?>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLA1FTfKBAEX4hblYoH6mnq0zsie2w6Wif" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</main>
+
+<!-- here goes the playlists -->
+
+<h2 class="subheader">ערוצים ששווה לבדוק</h2>
+<main class="channel_container  ">
+<?php
+    if($_GET["topic"] != ""){
+        $topic = $_GET["topic"];
+        $json = file_get_contents('./resources/'.$topic.'/channels.json');
+        $json_decoded = json_decode($json, true);
+        for ($i = 0; $i < count($json_decoded); $i++) {
+            $jsonObj = $json_decoded[$i];
+            $item = '
+            <a class="channel_link" target="_blank" style="text-decoration:none;" href="'.$jsonObj["link"].'">
+                    <img src="imgs/channels/'.$jsonObj["image"].'" alt="linux" class="channel_logo">
+                    <p class="channel_name">'.$jsonObj["name"].'</p>
+            </a>
+            ';
+            
+            echo $item;
+        }
+    }else{
+        echo rand(1,20);
+        echo print_r(scandir('./resources'));
+        //need to pick random content to present with the rand() function .
+    }
+
+?>
 </main>
 <?php 
     include_once('footer.php'); 

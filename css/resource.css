@@ -1,0 +1,116 @@
+.menu{
+    background-color: var(--color6);
+    gap: 1.5em;
+    grid-template-columns: repeat(4,1fr);
+    list-style-type: none;
+    text-align: center;
+}
+.menu_item{
+    display: inline-block;
+    padding: 0.8em;
+    text-decoration: none;
+}
+.menu_item:hover{
+    text-shadow: 0 0 10px white ;
+}
+.menu_link{
+    text-decoration: none;
+    color: white;
+}
+
+
+.videos_container{
+    width: 90%;
+    margin: 2em auto;
+    display: grid;
+    gap: 3em;
+    grid-template-columns: repeat(3,1fr);
+    color: white;
+}
+
+.video_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    text-shadow: 0 0 10px white ;
+}
+.video_container a img{
+    width: 25em;
+    height: auto;
+    border: 0.2em solid black;
+    border-radius:0.4em;
+    box-shadow: 0 0 1.5em white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.channel_container{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5em;
+    grid-template-columns: repeat(4,1fr);
+    color: white;
+}
+.channel_logo{
+    border: 0.3em solid black;
+    border-radius: 50%;
+    box-shadow: 0 0 1.5em white;
+    width: 8em;
+}
+.channel_link{
+    text-align: center;
+    color: black;
+    text-shadow: 0 0 10px white ;
+    padding: 1em;
+}
+.channel_name{
+    margin: 0.5em;
+    font-size: 1.5rem;
+}
+
+@media (max-width:1200px) {
+    .channel_container{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+
+@media (max-width:1040px) {
+    .videos_container{
+        grid-template-columns:1fr 1fr;
+    }
+    .video_container a img{
+        width: 18em;
+    }
+}
+@media (max-width:1500px) {
+    .video_container a img{
+        width: 18em;
+    }
+}
+@media (max-width:600px) {
+    .channel_container{
+        grid-template-columns:1fr;
+    }
+    .videos_container{
+        grid-template-columns: 1fr;
+    }
+}   

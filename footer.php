@@ -1,11 +1,23 @@
 <footer class="footer">
     <section class="contectus">
         <ul class="link_list">
-            <li class="item">
-                <a href="#"><img class="icons" src="imgs/youtube.ico" alt="gmail">YouTube:</a>
+        <li class="item">
+                <a href="#"><img class="icons" src="imgs/youtube.ico" alt="gmail">YouTube</a>
             </li>
             <li class="item">
-                <a href="#"><img class="icons" src="imgs/github.ico" alt="gmail">Github:</a>
+                <a href="#"><img class="icons" src="imgs/github.png" alt="gmail">Github</a>
+            </li>
+            <li class="item">
+                <a href="#"><img class="icons" src="imgs/twitter.png" alt="gmail">Twitter</a>
+            </li>
+            <li class="item">
+                <a href="#"><img class="icons" src="imgs/facebook.png" alt="gmail">Facebook</a>
+            </li>
+            <li class="item">
+                <a href="#"><img class="icons" src="imgs/instagram.png" alt="gmail">Instagram</a>
+            </li>
+            <li class="item">
+                <a href="#"><img class="icons" src="imgs/gmail.png" alt="gmail">Gmail</a>
             </li>
         </ul>
     </section>
