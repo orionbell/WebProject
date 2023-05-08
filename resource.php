@@ -40,8 +40,22 @@ if($_GET["topic"] != ""){
         echo $item;
     }
     }else{
-        echo rand(1,20);
-        //need to pick random content to present with the rand() function .
+        $dir_array = scandir('./resources');
+        unset($dir_array[0]);
+        unset($dir_array[1]);
+        for($j = 2;$j < 20;$j++){
+	        $topic = $dir_array[rand(2,count($dir_array))];
+            $json = file_get_contents('./resources/'.$topic.'/youtube.json');
+            $json_decoded = json_decode($json, true);
+            $jsonObj = $json_decoded[rand(0,20)];
+            $item = '
+            <div class="video_container">    
+            <a href="https://www.youtube.com/embed/'.$jsonObj["video_id"].'" target="_BLANK"><img src="https://img.youtube.com/vi/'.$jsonObj["video_id"].'/0.jpg" /></a>
+                <p class="video_title">'.$jsonObj["title"].'</p>
+            </div>  
+                ';
+            echo $item;
+        }
     }
 ?>
 </main>
@@ -67,9 +81,22 @@ if($_GET["topic"] != ""){
             echo $item;
         }
     }else{
-        echo rand(1,20);
-        echo print_r(scandir('./resources'));
-        //need to pick random content to present with the rand() function .
+        $dir_array = scandir('./resources');
+        unset($dir_array[0]);
+        unset($dir_array[1]);
+        for($j = 2;$j < 6;$j++){
+	        $topic = $dir_array[rand(2,count($dir_array))];
+            $json = file_get_contents('./resources/'.$topic.'/channels.json');
+            $json_decoded = json_decode($json, true);
+            $jsonObj = $json_decoded[rand(0,3)];
+            $item = '
+            <a class="channel_link" target="_blank" style="text-decoration:none;" href="'.$jsonObj["link"].'">
+                    <img src="./imgs/channels/'.$jsonObj["image"].'" alt="image" class="channel_logo">
+                    <p class="channel_name">'.$jsonObj["name"].'</p>
+            </a>
+            ';
+            echo $item;
+        }
     }
 
 ?>
