@@ -1,0 +1,32 @@
+[
+    {
+        "image": "CoreySchafer.jpg",
+        "link": "https://youtube.com/@coreyms",
+        "name": "Corey Schafer"
+    },
+    {
+        "image": "Indently.jpg",
+        "link": "https://youtube.com/@Indently",
+        "name": "Indently"
+    },
+    {
+        "image": "NeuralNine.jpg",
+        "link": "https://youtube.com/@NeuralNine",
+        "name": "NeuralNine"
+    },
+    {
+        "image": "TechWithTim.jpg",
+        "link": "https://youtube.com/@TechWithTim",
+        "name": "Tech With Tim"
+    },
+    {
+        "image": "PatrickLoeber.jpg",
+        "link": "https://youtube.com/@patloeber",
+        "name": "Patrick Loeber"
+    },
+    {
+        "image": "mCoding.jpg",
+        "link": "https://youtube.com/@mCoding",
+        "name": "mCoding"
+    }
+]

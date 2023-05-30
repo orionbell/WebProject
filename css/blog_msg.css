@@ -5,8 +5,8 @@
 }
 
 .msg_container {
-    width: 60%;
-    margin-right: 6em;
+    width: 80%;
+    margin: 6em;
     background-color: var(--color6);
     min-height: 100em;
     display: flex;
@@ -15,6 +15,7 @@
     direction: rtl;
     border-radius: 1em;
     box-shadow: 0 0 1.5em white;
+    margin: 1em auto;
 }
 
 .msg_content {
@@ -22,10 +23,11 @@
     border: 0.2em solid white;
     box-shadow: 0 0 1.5em white;
     border-radius: 1em;
-    max-width: 70%;
+    max-width: 80%;
     min-width: 60%;
-    margin: 1em 4em;
-    direction: ltr;
+    margin: 1em 2em;
+    direction: rtl;
+    /* margin: 1em auto; */
 }
 
 .msg_content .content_img {
@@ -59,15 +61,19 @@
     margin: 2em;
     font-size: 1.1rem;
 }
-
+.user_msg_box{
+    margin: 1em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+}
 .user_form {
     background: linear-gradient(30deg, var(--color1), var(--color4));
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-right: 4em;
-    margin-left: 1em;
-    border-radius: 0.2em;
+    margin: 1em auto;
+    border-radius: 0.5em;
     padding: 2em;
     border: 0.2em solid white;
     box-shadow: 0 0 1.5em white;
@@ -88,6 +94,11 @@
 .text_input {
     min-height: 8em;
     overflow: hidden;
+}
+
+.comment{
+    padding: 1.4em;
+    margin: 1em auto;
 }
 
 @media (max-width:800px) {
@@ -119,7 +130,7 @@
     }
 
     .user_inputs {
-        width: 15em;
+        width: 18em;
         max-width: 20em;
     }
 
@@ -129,6 +140,7 @@
     }
 
     .user_msg_box {
-        margin: 0 4em;
+        margin: 0 auto;
+        display: flex;
     }
 }

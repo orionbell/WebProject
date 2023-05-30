@@ -1,0 +1,14 @@
+[
+    {
+        "image": "CProgrammingTutorials.jpg",
+        "link": "https://youtube.com/playlist?list=PLA1FTfKBAEX4hblYoH6mnq0zsie2w6Wif",
+        "name": "C Programming Tutorials",
+        "video_id": "gq_ZXCuRhU4"
+    },
+    {
+        "image": "DebuggingCPrograms.jpg",
+        "link": "https://youtube.com/playlist?list=PL9IEJIKnBJjHGWPN_S9NS_Ky1-tC8ZrUI",
+        "name": "Debugging C Programs",
+        "video_id": "mfmXcbiRs0E"
+    }
+]

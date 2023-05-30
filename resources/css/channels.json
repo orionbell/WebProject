@@ -1,0 +1,12 @@
+[
+    {
+        "image": "TheNetNinja.jpg",
+        "link": "https://youtube.com/@NetNinja",
+        "name": "The Net Ninja"
+    },
+    {
+        "image": "WebDevSimplified.jpg",
+        "link": "https://youtube.com/@WebDevSimplified",
+        "name": "Web Dev Simplified"
+    }
+]
