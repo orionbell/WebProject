@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/blog_msg.css">
     <link rel="stylesheet" href="./css/resource.css">
+    <link rel="stylesheet" href="./css/course.css">
     <title>CodeIL</title>
 </head>
 <body>

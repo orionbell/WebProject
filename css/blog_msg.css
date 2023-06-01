@@ -5,10 +5,10 @@
 }
 
 .msg_container {
-    width: 80%;
+    width: 50%;
     margin: 6em;
     background-color: var(--color6);
-    min-height: 100em;
+    min-height: 50em;
     display: flex;
     flex-direction: column;
     padding-top: 1em;

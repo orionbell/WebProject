@@ -3,18 +3,6 @@
 		"title":"python for begginers",
 		"image":"python.png",
 		"color":"var(--color3)",
-		"page_link":"#"
-	},
-	{
-		"title":"python for begginers",
-		"image":"python.png",
-		"color":"var(--color2)",
-		"page_link":"#"
-	},
-	{
-		"title":"python for begginers",
-		"image":"python.png",
-		"color":"var(--color1)",
-		"page_link":"#"
+		"page_link":"course.php?subcourse=python for begginers"
 	}
 ]

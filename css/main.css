@@ -32,7 +32,6 @@
     text-align: center;
     background-color: rgb(10, 10, 10);
     border-radius: 1em;
-
 }
 .topic_container:hover{
     box-shadow: 0 0 1.5em white;
