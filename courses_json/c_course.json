@@ -4,5 +4,11 @@
 		"image":"python.png",
 		"color":"var(--color3)",
 		"page_link":"course.php?subcourse=python for begginers"
+	},
+	{
+		"title":"python for begginers",
+		"image":"python.png",
+		"color":"var(--color3)",
+		"page_link":"course.php?subcourse=python for begginers"
 	}
 ]

@@ -1,36 +1,76 @@
+/*FIX THE SLADING OF THE IMAGES IN THE PLAYLIST */
+
+
 .course_container{
     width: 90%;
     display: flex;
     gap: 1em;
-    
+    flex-direction: column;
     margin: 0 auto;
-    border: solid red 0.1em;
-}
-@media (max-width:700px) {
-    .course_container{
-        flex-direction: row;
-    }
 }
 .videolist_container{
     display: flex;
     gap: 1.5em;
-    border: solid yellow 0.1em;
+    /* border: solid blue 0.1em; */
 }
-.video_box{
+.course_video_container{
     width: 80%;
-    border: solid green 0.1em;
+    /* border: solid yellow 0.1em; */
 }
 .playlist_videos_container{
+    width: 20%;
     display: flex;
     flex-direction: column;
     gap: 1.2em;
-    max-height: 40em;
+    max-height: 70vh;
     overflow: scroll;
-
 }
 .playlist_videos_container img{
-    width: 80%;
+    margin: 0 auto;
+    width: 100%;
+    border-radius: .5em;
 }
+.course_list_item{
+    width: 80%;
+    margin: 2em auto;
+    color: white;
+    text-align: center;
+}
+.course_list_item:hover img{
+    box-shadow: 0 0 1.5em white;
+}
+
+.course_list_item:hover .descpt{
+    text-shadow: 0 0 10px white ;
+}
+.video_box video{
+    margin: 0 auto;
+    width:80%;
+}
+
 .video_box{
-    
+    border: solid 0.4em var(--color6);
+    border-radius: 0.4em;
+    margin-top: 2em;
+    width: 90%;
+    height: 100%;
+    /* border: solid red 0.1em; */
+}
+
+@media (max-width:700px) {
+    .course_container .videolist_container{
+        flex-direction: column;
+    }
+    .course_video_container{
+        width: 100%;
+    }
+    .video_box{
+        width:100%;
+    }
+
+    .playlist_videos_container{
+        margin: 0 auto;
+        max-height: 80vh;
+        width: 80%;
+    }
 }
