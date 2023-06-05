@@ -6,7 +6,6 @@
 
 .msg_container {
     width: 50%;
-    margin: 6em;
     background-color: var(--color6);
     min-height: 50em;
     display: flex;
@@ -27,7 +26,6 @@
     min-width: 60%;
     margin: 1em 2em;
     direction: rtl;
-    /* margin: 1em auto; */
 }
 
 .msg_content .content_img {
@@ -63,6 +61,7 @@
 }
 .user_msg_box{
     margin: 1em 2em;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
@@ -75,20 +74,20 @@
     margin: 1em auto;
     border-radius: 0.5em;
     padding: 2em;
+    width: 100%;
     border: 0.2em solid white;
     box-shadow: 0 0 1.5em white;
 }
-
 .user_inputs {
     color: var(--color6);
     border-radius: 0.2em;
-    width: 25em;
+    width: 90%;
     margin: 1em auto;
     outline: none;
     border: none;
     padding: 0.4em;
     font-size: 1rem;
-    resize: vertical;
+    resize:vertical;
 }
 
 .text_input {
@@ -101,8 +100,13 @@
     margin: 1em auto;
 }
 .comment_container{
-    overflow: scroll;
+    padding: 2em;
+    max-height: 80vh;
+    overflow-y: scroll;
 }
+.comment_container::-webkit-scrollbar{
+    display: none;
+  }
 
 @media (max-width:800px) {
     .msg_container {
@@ -119,8 +123,15 @@
         margin: 1em auto;
         width: 10em;
     }
+    .user_msg_box{
+        width: 90%;
+    }
 }
-
+@media (max-width:1100px) and (min-width:800px){
+    .user_msg_box{
+        width: 80%;
+    }
+}
 @media (max-width:1200px) {
     .blog_container {
         flex-direction: column;
@@ -147,3 +158,4 @@
         display: flex;
     }
 }
+
