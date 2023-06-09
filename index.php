@@ -1,5 +1,5 @@
 <?php
-    include_once('header.php');
+    include_once('includes/header.php');
 ?>
 
 <h2 class="subheader">מערכות הפעלה</h2>
@@ -100,7 +100,13 @@
             <p class="title" style="margin-top:0.6em;">Git and Github</p>
         </div>
     </a>
+    <a class="course_link" style="text-decoration:none;" href="courses.php?course=git">
+        <div class="topic_container" style="color:var(--color1);padding:2em 3.5em;">
+            <img src="imgs/docker.png" style="width:12em;" alt="linux" class="logo">
+            <p class="title" style="margin-top:1em;">Docker</p>
+        </div>
+    </a>
 </main>
 <?php
-    include_once('footer.php');
+    include_once('includes/footer.php');
 ?>

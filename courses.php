@@ -1,5 +1,5 @@
 <?php 
-    include_once('header.php');
+    include_once('includes/header.php');
     $course = $_GET["course"];
     echo '<h2 class="subheader">'.$course.'</h2>';
 ?>
@@ -24,5 +24,5 @@
 ?>
 </main>
 <?php 
-    include_once('footer.php'); 
+    include_once('includes/footer.php'); 
 ?>

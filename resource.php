@@ -1,5 +1,5 @@
 <?php 
-    include_once('header.php');
+    include_once('includes/header.php');
     $already_defined = array();
     $playlist_already_defined = array();
     $videos = array();
@@ -197,5 +197,5 @@
 <div class="back_btn_container"><a href="#top" class="menu_link">בחזרה למעלה</a></div>
 
 <?php 
-    include_once('footer.php'); 
+    include_once('includes/footer.php'); 
 ?>

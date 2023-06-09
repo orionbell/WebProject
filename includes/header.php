@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./css/blog_msg.css">
     <link rel="stylesheet" href="./css/resource.css">
     <link rel="stylesheet" href="./css/course.css">
-    <title>CodeIL</title>
+    <title>CS israel</title>
 </head>
 <body>
     <nav class="nav_container" id="navbar">
@@ -24,7 +24,7 @@
                 <a href="index.php" class="nav_link link1">בית</a>
             </li>
             <li class="nav_item">
-                <a href="#" class="nav_link link2">חנות</a>
+                <a href="https://translate.google.com/" class="nav_link link2">חנות</a>
             </li>
             <li class="nav_item">
                 <a href="resource.php" class="nav_link link3">מקורות</a>
@@ -32,5 +32,8 @@
             <li class="nav_item">
                 <a href="blog.php" class="nav_link link4">בלוג</a>
             </li>
+            <!-- <li class="nav_item">
+                <a href="profile.php" class="nav_link link5">הפרופיל שלי</a>
+            </li> -->
         </ul>
     </nav>

@@ -1,5 +1,3 @@
-/*FIX THE SLADING OF THE IMAGES IN THE PLAYLIST */
-
 
 .course_container{
     width: 90%;
@@ -11,12 +9,9 @@
 .videolist_container{
     display: flex;
     gap: 1.5em;
-    /* border: solid blue 0.1em; */
 }
 .course_video_container{
     width: 80%;
-    height: 40%;
-    /* border: solid yellow 0.1em; */
 }
 .playlist_videos_container{
     width: 20%;
@@ -55,12 +50,10 @@
 }
 
 .video_box{
-    /* border: solid 0.4em var(--color6); */
     border-radius: 0.4em;
     margin-top: 2em;
     width: 90%;
     height: 100%;
-    /* border: solid red 0.1em; */
 }
 
 @media (max-width:700px) {
