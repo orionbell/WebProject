@@ -32,8 +32,8 @@
             <li class="nav_item">
                 <a href="blog.php" class="nav_link link4">בלוג</a>
             </li>
-            <!-- <li class="nav_item">
-                <a href="profile.php" class="nav_link link5">הפרופיל שלי</a>
-            </li> -->
+            <li class="nav_item">
+                <a href="profile.php" class="nav_link link5">המשתמש שלי</a>
+            </li>
         </ul>
     </nav>

@@ -1,7 +1,6 @@
 <?php
     include_once('includes/header.php');
 ?>
-
 <h2 class="subheader">מערכות הפעלה</h2>
 <main class="container">
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=debian">

@@ -8,5 +8,10 @@
         "image": "NetworkChuck.jpg",
         "link": "https://youtube.com/@NetworkChuck",
         "name": "NetworkChuck"
+    },
+    {
+        "image": "Jeremy'sITLab.jpg",
+        "link": "https://youtube.com/@JeremysITLab",
+        "name": "Jeremy's IT Lab"
     }
 ]

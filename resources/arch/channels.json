@@ -8,5 +8,10 @@
         "image": "LearnLinuxTV.jpg",
         "link": "https://youtube.com/@LearnLinuxTV",
         "name": "Learn Linux TV"
+    },
+    {
+        "image": "tutoriaLinux.jpg",
+        "link": "https://youtube.com/@tutoriaLinux",
+        "name": "tutoriaLinux"
     }
 ]

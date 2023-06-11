@@ -31,6 +31,7 @@
         <li class="menu_item"><a href="resource.php?topic=networking" class="menu_link">Networking</a></li>
         <li class="menu_item"><a href="resource.php?topic=ethicalhacking" class="menu_link">Ethical hacking</a></li>
         <li class="menu_item"><a href="resource.php?topic=git" class="menu_link">Git</a></li>
+        <li class="menu_item"><a href="resource.php?topic=docker" class="menu_link">Docker</a></li>
         <li class="menu_item"><a href="resource.php?topic=etc" class="menu_link">Else</a></li>
     </ul>
 </main>
@@ -96,7 +97,6 @@
         echo '<h2 class="subheader" id="playlists">פלייליסטים</h2>';
     }
 ?>
-<!-- playlist container -->
 <main class="videos_container">
 <?php 
     if($_GET["topic"] != ""){

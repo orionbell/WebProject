@@ -4,5 +4,11 @@
         "link": "https://youtube.com/playlist?list=PLT98CRl2KxKHKd_tH3ssq0HPrThx2hESW",
         "name": "Linux Crash Course",
         "video_id": "p8QOnty6rSU"
+    },
+    {
+        "image": "TheLinuxBasicsCourse:BeginnertoSysadmin,StepbyStep.jpg",
+        "link": "https://youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK",
+        "name": "The Linux Basics Course: Beginner to Sysadmin, Step by Step",
+        "video_id": "bju_FdCo42w"
     }
 ]

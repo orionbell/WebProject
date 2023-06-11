@@ -18,7 +18,15 @@
 }
 
 .msg_content {
-    background: linear-gradient(30deg, var(--color1), var(--color4));
+        background: linear-gradient(
+        45deg,
+        #7953cd 20%,
+        #00affa 30%,
+        #0190cd 70%,
+        #764ada 80%
+    );
+    background-size: 500% auto;
+    animation: animate 5s ease-in-out infinite alternate;
     border: 0.2em solid white;
     box-shadow: 0 0 1.5em white;
     border-radius: 1em;

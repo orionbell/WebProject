@@ -50,3 +50,26 @@
     color: var(--color4);
     text-shadow: 0 0 1.1em var(--color4);
 }
+.link5{
+    background: linear-gradient(
+        45deg,
+        #7953cd 20%,
+        #00affa 30%,
+        #0190cd 70%,
+        #764ada 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: animate 5s ease-in-out infinite alternate;
+}
+@keyframes animate {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
