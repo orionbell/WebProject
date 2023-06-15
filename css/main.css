@@ -33,14 +33,19 @@
 }
 .topic_container{
     flex-grow: 1;
+    position: relative;
     padding: 2em 5em;
     text-align: center;
-    background-color: rgb(10, 10, 10);
+    background:linear-gradient(0deg,#000,#262626) ;
     border-radius: 1em;
+    transition: transform 50ms ease-in-out;
+    z-index: 1;
 }
 .topic_container:hover{
-    box-shadow: 0 0 1.5em white;
+    transform: scale(1.03);
+    box-shadow: 0 0 30px white;
 }
+
 .logo{
     width: 10rem;
     margin: 0 auto;

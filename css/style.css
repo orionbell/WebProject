@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style-type: none;
 }
 
 *:focus {
@@ -13,7 +14,7 @@
     --color2: #FDE74C;
     --color3: #9BC53D;
     --color4: #C3423F;
-    --color5: #111111;
+    --color5: #111;
     --color6: #000;
 }
 
@@ -21,6 +22,7 @@ body {
     font-size: 1.1rem;
     font-family:Arial, Helvetica, sans-serif;
     background-color: var(--color5);
+
 }
 body::-webkit-scrollbar{
     display: none;

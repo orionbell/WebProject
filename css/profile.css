@@ -1,0 +1,87 @@
+.userui_contianer{
+    width: 80%;
+    margin: 4em auto;
+    direction: rtl;
+    padding: 4em;
+    background: rgba(0,0,0,0.25);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 1px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+}
+.ui_header{
+    font-size: 2rem;
+    padding: 1em 2em;
+    color: white;
+    text-shadow: 0 0 10px white ;
+}
+.peronal_info_list{
+    padding: 2em 6em;
+    margin: 1em 0;
+    background-color: #262626;
+    border-radius: 10px;
+}
+.change_paswd_btn{
+    width: 10%;
+    font-size: 1.2rem;
+    padding: 0.5em;
+    background-color: #000;
+    overflow: hidden;
+    border: none;
+    color: #764ada;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.change_paswd_btn:hover{
+    box-shadow: 0 0 20px #764ada ;
+}
+
+
+.peronal_info_item{
+    margin: 2em 0;
+    width: 40%;
+    padding: 0.5em;
+    background-color: #000;
+    color: #764ada;
+    font-size: 1.4rem;
+    border-bottom: #764ada solid .2em;
+    text-shadow: 0 0 10px #764ada ;
+    border-radius: 5px;
+}.name_ui{
+    margin: 1em 0;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: white;
+    text-shadow: 0 0 10px white ;
+}
+@media (max-width:1150px) {
+    .userui_contianer{
+        text-align: center;
+        padding: 1em;
+    }
+    .peronal_info_list{
+        padding: 1em;
+    }
+    .peronal_info_item{
+        margin: 2em auto;
+        font-size: 1rem;
+        width: 60%;
+    }
+    .change_paswd_btn{
+        width: 30%;
+    }
+}
+@media (max-width:800px) {
+    .userui_contianer{
+        text-align: center;
+        padding: 1em;
+    }
+    .peronal_info_list{
+        padding: 1em;
+    }
+    .peronal_info_item{
+        margin: 2em auto;
+        font-size: 1rem;
+        width: 80%;
+    }
+    .change_paswd_btn{
+        width: 50%;
+    }
+}

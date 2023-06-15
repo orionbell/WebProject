@@ -63,3 +63,20 @@ link4.addEventListener("mouseout",() =>{
     link1.style.visibility = "visible";
     link5.style.visibility = "visible";
 })
+link5.addEventListener("mouseover",() =>{
+    nav_container.style.borderBottom = "solid .3em #764ada ";
+    //nav_container.classList.add('accounteffect');
+    link2.style.visibility = "hidden";
+    link3.style.visibility = "hidden";
+    link1.style.visibility = "hidden";
+    link4.style.visibility = "hidden";
+})
+link5.addEventListener("mouseout",() =>{
+    nav_container.style.borderBottom = "solid .3em #252525";
+    //nav_container.classList.remove('accounteffect');
+    link2.style.visibility = "visible";
+    link3.style.visibility = "visible";
+    link1.style.visibility = "visible";
+    link4.style.visibility = "visible";
+})
+

@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="./css/blog_msg.css">
     <link rel="stylesheet" href="./css/resource.css">
     <link rel="stylesheet" href="./css/course.css">
+    <link rel="stylesheet" href="./css/login_signin.css">
+    <link rel="stylesheet" href="./css/profile.css">
     <title>CS israel</title>
 </head>
 <body>
@@ -32,8 +34,16 @@
             <li class="nav_item">
                 <a href="blog.php" class="nav_link link4">בלוג</a>
             </li>
-            <li class="nav_item">
-                <a href="profile.php" class="nav_link link5">המשתמש שלי</a>
-            </li>
+            <?php
+                if(isset($user_connected)){
+                    echo '<li class="nav_item">
+                            <a href="profile.php" class="nav_link link5">המשתמש שלי</a>
+                          </li>';
+                }else{
+                    echo '<li class="nav_item">
+                            <a href="signin.php" class="nav_link link5">המשתמש שלי</a>
+                          </li>';
+                }
+            ?>
         </ul>
     </nav>
