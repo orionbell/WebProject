@@ -1,33 +1,6 @@
 <?php
     include_once('includes/header.php');
 ?>
-<h2 class="subheader">מערכות הפעלה</h2>
-<main class="container">
-    <a class="course_link" style="text-decoration:none;" href="courses.php?course=debian">
-        <div class="topic_container" style="color:var(--color2)">
-                <img src="imgs/debian.png" alt="linux" class="logo">
-                <p class="title">Debian linux</p>
-        </div>
-    </a>
-    <a class="course_link" style="text-decoration:none;" href="courses.php?course=windows">
-        <div class="topic_container" style="color:var(--color1)">
-            <img src="imgs/windows.png" alt="linux" class="logo">
-            <p class="title">Windows</p>
-        </div>
-    </a>
-    <a class="course_link" style="text-decoration:none;" href="courses.php?course=redhat">
-        <div class="topic_container" style="color:var(--color4)">
-            <img src="imgs/redhat.png" alt="linux" class="logo" style="margin-top:1.2em;margin-bottom:0.95em;" >
-            <p class="title">Redhat linux</p>
-        </div>
-    </a>
-    <a class="course_link" style="text-decoration:none;" href="courses.php?course=arch">
-        <div class="topic_container" style="color:var(--color3)">
-            <img src="imgs/arch.png" alt="linux" class="logo">
-            <p class="title">Arch linux</p>
-        </div>
-    </a>
-</main>
 <h2 class="subheader">שפות תכנות</h2>
 <main class="container">
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=python">
@@ -81,28 +54,40 @@
 </main>
 <h2 class="subheader">אחר</h2>
 <main class="container">
+    <a class="course_link" style="text-decoration:none;" href="courses.php?course=linux">
+        <div class="topic_container" style="color:var(--color2)">
+                <img src="imgs/linux.png" alt="linux" class="logo">
+                <p class="title" style="margin-top:0;">linux</p>
+        </div>
+    </a>
+    <a class="course_link" style="text-decoration:none;" href="courses.php?course=windows">
+        <div class="topic_container" style="color:var(--color1);">
+            <img src="imgs/windows.png"  alt="linux" class="logo">
+            <p class="title" style="margin-top:1.01em;">Windows</p>
+        </div>
+    </a>
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=networking">
         <div class="topic_container" style="color:var(--color1);">
             <img src="imgs/cisco.png" alt="linux" class="logo" style="margin-top:3.5em;">
-            <p class="title">Networking</p>
+            <p class="title" style="margin-top:1.5em;">Networking</p>
         </div>
     </a>
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=ehacking">
         <div class="topic_container" style="color:var(--color2)">
             <img src="imgs/hacking.png" alt="linux" class="logo">
-            <p class="title">Ethical hacking</p>
+            <p class="title" style="margin-top:1.5em;">Ethical hacking</p>
         </div>
     </a>
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=git">
         <div class="topic_container" style="color:var(--color4)">
             <img src="imgs/git.png" alt="linux" class="logo">
-            <p class="title" style="margin-top:0.6em;">Git and Github</p>
+            <p class="title" style="margin-top:1.02em;">Git and Github</p>
         </div>
     </a>
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=git">
         <div class="topic_container" style="color:var(--color1);padding:2em 3.5em;">
             <img src="imgs/docker.png" style="width:12em;" alt="linux" class="logo">
-            <p class="title" style="margin-top:1em;">Docker</p>
+            <p class="title" style="margin-top:1.5em;">Docker</p>
         </div>
     </a>
 </main>

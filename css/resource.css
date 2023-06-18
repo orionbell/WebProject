@@ -34,13 +34,12 @@
     justify-content: space-around;
     text-align: center;
     text-shadow: 0 0 10px white ;
+    transition: transform 60ms ease-in-out;
 }
 .video_container:hover{
     transform: scale(1.03);
 }
-.channel_container:hover{
-    transform: scale(1.03);
-}
+
 .video_container a img{
     width: 25em;
     height: auto;
@@ -96,6 +95,10 @@
     text-shadow: 0 0 10px white ;
     padding: 1em;
     color: white;
+    transition: transform 60ms ease-in-out;
+}
+.channel_link:hover{
+        transform: scale(1.03);
 }
 .channel_name{
     margin: 0.5em;

@@ -46,6 +46,12 @@ input[type="submit"]:hover{
 .already_login_text:hover{
     text-shadow: 0 0 10px white ;
 }
+#error{
+    text-align: center;
+    font-size: 1rem;
+    color: red;
+    text-shadow: 0 0 10px red ;
+}
 @media (max-width:1060px) {
     .signlogin_form{
         width: 80%;

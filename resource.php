@@ -15,10 +15,8 @@
 ?>
 <main class="right_menu" id="top">
     <ul class="menu">
-        <li class="menu_item"><a href="resource.php?topic=debian" class="menu_link">Debian</a></li>
+        <li class="menu_item"><a href="resource.php?topic=linux" class="menu_link">linux</a></li>
         <li class="menu_item"><a href="resource.php?topic=windows" class="menu_link">Windows</a></li>
-        <li class="menu_item"><a href="resource.php?topic=redhat" class="menu_link">Redhat</a></li>
-        <li class="menu_item"><a href="resource.php?topic=arch" class="menu_link">Arch</a></li>
         <li class="menu_item"><a href="resource.php?topic=python" class="menu_link">Python</a></li>
         <li class="menu_item"><a href="resource.php?topic=c" class="menu_link">C</a></li>
         <li class="menu_item"><a href="resource.php?topic=java" class="menu_link">Java</a></li>
