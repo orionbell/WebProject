@@ -25,7 +25,8 @@
     overflow: hidden;
     border: none;
     color: #764ada;
-    border-radius: 5px; 
+    border-radius: 5px;
+    border-bottom: transparent solid .2em;
 }
 .signlogin_inputs:focus{
     border-bottom: #764ada solid .2em;
