@@ -3,12 +3,12 @@
 ?>
     <form action="includes/signup_inc.php" method="post" class="signlogin_form">
         <h2 class="signin_title">הרשמה</h2>
-        <input type="text" name="username" class="signlogin_inputs" placeholder="שם משתמש">
-        <input type="email" name="email" class="signlogin_inputs" placeholder="אימייל">
-        <input type="password" name="password" class="signlogin_inputs" placeholder="סיסמה">
-        <input type="password" name="retype_password" class="signlogin_inputs" placeholder="אישור סיסמה">
+        <input type="text" name="username" class="signlogin_inputs" placeholder="שם משתמש" spellcheck="false">
+        <input type="email" name="email" class="signlogin_inputs" placeholder="אימייל" spellcheck="false">
+        <input type="password" name="password" class="signlogin_inputs" placeholder="סיסמה" spellcheck="false">
+        <input type="password" name="retype_password" class="signlogin_inputs" placeholder="אישור סיסמה" spellcheck="false">
         <a href="login.php" style="" class="already_login_text">יש לי כבר חשבון</a>
-        <p id="error">
+        <p class="error">
             <?php
                 if($_GET["error"] == "EmptyInputs"){
                     echo "נא למלא את כל התאים";

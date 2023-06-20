@@ -47,7 +47,7 @@ input[type="submit"]:hover{
 .already_login_text:hover{
     text-shadow: 0 0 10px white ;
 }
-#error{
+.error{
     text-align: center;
     font-size: 1rem;
     color: red;

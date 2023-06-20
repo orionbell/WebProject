@@ -14,15 +14,21 @@
     text-shadow: 0 0 10px white ;
 }
 .peronal_info_list{
+    display: flex;
+    flex-direction: column;
     padding: 2em 6em;
     margin: 1em 0;
     background-color: #262626;
     border-radius: 10px;
 }
+#size{
+    width: 10%;
+}
 .btn-form{
-    width: 50%;
+    width: 30%;
 }
 .change_paswd_btn{
+    margin: 1em;
     width: 10%;
     font-size: 1.2rem;
     padding: 0.5em;
@@ -45,15 +51,25 @@
     background-color: #000;
     color: #764ada;
     font-size: 1.4rem;
+    border: none;
+    border-radius: 5px;
+    border-bottom: transparent solid .2em;
+}
+.peronal_info_item:focus{
     border-bottom: #764ada solid .2em;
     text-shadow: 0 0 10px #764ada ;
-    border-radius: 5px;
-}.name_ui{
+}
+.name_ui{
     margin: 1em 0;
     font-weight: bold;
     font-size: 1.4rem;
     color: white;
     text-shadow: 0 0 10px white ;
+}
+.profile-error{
+    font-size: 1rem;
+    color: red;
+    text-shadow: 0 0 10px red ;
 }
 @media (max-width:1150px) {
     .userui_contianer{

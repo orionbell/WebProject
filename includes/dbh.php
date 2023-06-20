@@ -4,7 +4,7 @@ $db_server_name = 'localhost';
 $db_user_name = 'root';
 $db_user_passwd = 'MysqlServer#yishai';
 $db_name = 'CS israel';
-
+require_once "./errors.php";
 // Creating connection to the database
 $conn = mysqli_connect($db_server_name,$db_user_name,$db_user_passwd,$db_name);
 if (!$conn) {
@@ -48,9 +48,63 @@ function login($user,$passwd){
         }
     }
 }
-function change_user_info($new_data,$type){
-    echo "UPDATE users SET username=?, WHERE username=?;";
-}
+function change_user_info($new_username,$new_email,$is_not_same_name,$is_not_same_email){
+    global $conn;
+    $sql = "SELECT last_info_change FROM users WHERE user_name = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"s",$_SESSION["username"]);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $info = mysqli_fetch_assoc($result);
+        if(mysqli_num_rows($result) == 0){
+            include "logout_inc.php";
+            header("Location: ../index.php");
+            exit();
+        }
+            if (strtotime($info["last_info_change"]. ' + 30 days') < strtotime(date("Y-m-d"))) {
+                if(empty_login_inputs($new_username,$new_email) !== false){
+                    header("Location: ../profile.php?error=EmptyInputs");
+                    exit();
+                }
+                if(invalid_username($new_username) !== false){
+                    header("Location: ../profile.php?error=UsernameInvalid");
+                    exit();
+                }
+                if(invalid_email($new_email) !== false){
+                    header("Location: ../profile.php?error=EmailInvalid");
+                    exit();
+                }
+                if(username_not_unique($new_username) !== false && $is_not_same_name !== false){
+                    header("Location: ../profile.php?error=UsernameNotUniquet");
+                    exit();
+                }
+                if(usermail_not_unique($new_email) !== false && $is_not_same_email !== false){
+                    header("Location: ../profile.php?error=UsermailNotUnique");
+                    exit();
+                }
+                $sql2 = "UPDATE users SET user_name = ?, user_email = ? ,last_info_change = ? WHERE user_name = ?;";
+                $stmt2 = mysqli_stmt_init($conn);
+                if(!mysqli_stmt_prepare($stmt2,$sql2)) {
+                    echo "Something went wrong :(";
+                }
+                else{
+                    $today = date("Y-m-d");
+                    mysqli_stmt_bind_param($stmt2,"ssss",$new_username,$new_email,$today,$_SESSION["username"]);
+                    mysqli_stmt_execute($stmt2);
+                    $_SESSION["username"] = $new_username;
+                    $_SESSION["useremail"] = $new_email;
+                    header("Location: ../profile.php");
+                }   
+            }
+            else {
+                $date = date("d/m/y",strtotime($info["last_info_change"]. ' + 30 days'));
+                header("Location: ../profile.php?error=ChangeTimeNotExpired&nextDateToChange=".$date);
+            }
+        }
+    }
 function add_course_to_user($course_name){
     
 }

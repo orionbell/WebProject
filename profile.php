@@ -10,13 +10,32 @@
     <main class="userui_contianer">
         <h2 class="ui_header">הקורסים שלי</h2>
         <h2 class="ui_header">פרטים אישיים</h2>
-            <ul class="peronal_info_list">
-                <span class="name_ui">שם</span>
-                <li class="peronal_info_item"><?php echo $username; ?></li>
-                <span class="name_ui">אימייל</span>
-                <li class="peronal_info_item"><?php echo $useremail; ?></li>
-                <form class="btn-form" action="">
-                    <input class="change_paswd_btn" type="submit" value="ערוך">
+            <form class="peronal_info_list" method="post" action="includes/change_info_inc.php">
+                <label class="name_ui">שם</label>
+                <input name="username" class="peronal_info_item" value="<?php echo $username; ?>" spellcheck="false">
+                <label class="name_ui">אימייל</label>
+                <input name="usermail" class="peronal_info_item" value="<?php echo $useremail; ?>" spellcheck="false">
+                <label class="profile-error">
+                    <?php
+                        if($_GET["error"] == "UsernameNotUnique" ){
+                            echo "שם המשתמש תפוס";
+                        }else if($_GET["error"] == "UsermailNotUnique" ){
+                            echo "המייל כבר בשימוש בחשבון אחר";
+                        }else if($_GET["error"] == "UsernameInvalid" ){
+                            echo "שם המשתמש אינו תקין";
+                        }else if($_GET["error"] == "EmailInvalid" ){
+                            echo "המייל אינו תקין";
+                        }else if($_GET["error"] == "EmptyInputs"){
+                            echo "נא למלא את כל התאים";
+                        }else if($_GET["error"] == "ChangeTimeNotExpired"){
+                            echo "לא עבר חודש מהפעם הקודמת ששינתה את הפרטים שלך <br>הפעם הבאה שניתן לשנות היא בתאריך ".$_GET["nextDateToChange"];
+                        }else{
+                            echo $_GET["error"];
+                        }
+                    ?>
+                </label>
+                    <input class="change_paswd_btn" id="size" type="submit" value="ערוך">
+                    <p class="profile-error">ניתן לשנות את הפרטים כל 30 יום</p> 
                 </form>
             </ul>
             <form class="btn-form" action="includes/logout_inc.php">
