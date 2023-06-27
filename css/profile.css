@@ -21,8 +21,22 @@
     background-color: #262626;
     border-radius: 10px;
 }
-#size{
-    width: 10%;
+.my_courses_container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 6em;
+    margin: 1em 0;
+    background-color: #262626;
+    border-radius: 10px;
+}
+.my_courses_container .empty_courses{
+    margin: 8em 0 ;
+}
+.my_courses_container .empty_courses a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 0 0 10px white ;
 }
 .btn-form{
     width: 30%;
@@ -42,8 +56,13 @@
 .change_paswd_btn:hover{
     box-shadow: 0 0 20px #764ada ;
 }
-
-
+.profile_btn{
+    width: 40%;
+}
+.panel-btn-form{
+    width: 80%;
+    margin: 0 auto;
+}
 .peronal_info_item{
     margin: 2em 0;
     width: 40%;
@@ -71,7 +90,26 @@
     color: red;
     text-shadow: 0 0 10px red ;
 }
+.profile_blog_btn{
+    text-align: center;
+    width: 15%;
+    padding: 0.8em;
+    border: none;
+    margin-top: 1em;
+    background-color: #000;
+    color: #764ada;
+    font-size: 1rem;
+    border-radius: 0.4em;
+}
+.profile_blog_btn:hover{
+    box-shadow: 0 0 10px #764ada ;
+    cursor: pointer;
+}
 @media (max-width:1150px) {
+    .profile_blog_btn{
+        margin: 1em auto;
+        width: 30%;
+    }
     .userui_contianer{
         text-align: center;
         padding: 1em;
@@ -81,14 +119,21 @@
     }
     .peronal_info_item{
         margin: 2em auto;
-        font-size: 1rem;
+        font-size: 0.9rem;
         width: 60%;
     }
     .change_paswd_btn{
         width: 30%;
     }
 }
-@media (max-width:800px) {
+@media (max-width:860px) {
+    .profile_blog_btn{
+        margin: 1em auto;
+        width: 60%;
+    }
+    .my_courses_container{
+        font-size: 0.5rem;
+    }
     .userui_contianer{
         text-align: center;
         padding: 1em;
@@ -98,11 +143,11 @@
     }
     .peronal_info_item{
         margin: 2em auto;
-        font-size: 1rem;
+        font-size: 0.9rem;
         width: 80%;
     }
     .change_paswd_btn{
-        width: 60%;
+        width: 40%;
     }
     .btn-form{
         width: 100%;

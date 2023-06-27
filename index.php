@@ -29,26 +29,26 @@
     </a>
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=php">
         <div class="topic_container" style="color:var(--color3)">
-            <img src="imgs/php.png" alt="linux" class="logo" style="margin-top:2.4em;">
-            <p class="title">Php</p>
+            <img src="imgs/php.png" alt="linux" class="logo" style="margin-top:3em;">
+            <p class="title" style="margin-top:3em;">Php</p>
         </div>
     </a>
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=mysql">
         <div class="topic_container" style="color:var(--color2)">
-            <img src="imgs/mysql.png" alt="linux" class="logo" style="margin-top:1.2em;">
-            <p class="title">Mysql</p>
+            <img src="imgs/mysql.png" alt="linux" class="logo" style="margin-top:2em;">
+            <p class="title" style="margin-top:3em;">Mysql</p>
         </div>
     </a>
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=nasm">
         <div class="topic_container" style="color:var(--color1)">
-            <img src="imgs/nasm.png" alt="linux" class="logo" style="margin-top:2.5em;">
-            <p class="title">Nasm</p>
+            <img src="imgs/nasm.png" alt="linux" class="logo" style="margin-top:3em;">
+            <p class="title" style="margin-top:3.2em;">Nasm</p>
         </div>
     </a>
     <a class="course_link" style="text-decoration:none;" href="courses.php?course=csshtml">
         <div class="topic_container" style="color:var(--color4)">
-            <img src="imgs/csshtml.png" alt="linux" class="logo" style="margin-top:1.4em;">
-            <p class="title">Css and Html</p>
+            <img src="imgs/csshtml.png" alt="linux" class="logo" style="margin-top:2.4em;">
+            <p class="title" style="margin-top:3em;">Css and Html</p>
         </div>
     </a>
 </main>

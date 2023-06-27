@@ -37,5 +37,4 @@ session_start();
             exit();
         }
         add_user($name,$mail,hash('md5',$pwd));
-
     }

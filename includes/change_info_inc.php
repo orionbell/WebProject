@@ -14,4 +14,9 @@ if($usermail == $_SESSION["useremail"]){
     global $is_not_same_email;
     $is_not_same_email = false;
 }
-change_user_info($username,$usermail,$is_not_same_name,$is_not_same_email);
+if(!$is_not_same_name && !$is_not_same_email){
+    header("Location: ../profile.php?error=SameInfo");
+    exit();
+}else{
+    change_user_info($username,$usermail,$is_not_same_name,$is_not_same_email);
+}

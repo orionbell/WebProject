@@ -32,11 +32,11 @@
     border-bottom: #764ada solid .2em;
     text-shadow: 0 0 10px #764ada ;
 }
-input[type="submit"]{
+.signlogin_form input[type="submit"]{
     width: 40%;
     cursor: pointer;
 }
-input[type="submit"]:hover{
+.signlogin_form input[type="submit"]:hover{
     box-shadow: 0 0 20px #764ada ;
 }
 .signlogin_form .already_login_text{

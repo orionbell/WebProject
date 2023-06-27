@@ -6,42 +6,206 @@
     }
     $username = $_SESSION["username"];
     $useremail = $_SESSION["useremail"];
+    $user_courses = $_SESSION["user_courses"];
 ?>
     <main class="userui_contianer">
         <h2 class="ui_header">הקורסים שלי</h2>
+            <section class="my_courses_container">
+                <?php
+                        if (count(unserialize($user_courses)) <= 0) {
+                            echo "<h2 class='empty_courses',><a href='./index.php' class'go_buy'>עדין לא קנית אף קורס לצפייה בקורסים לחץ</a></h2>";
+                        }else{
+                            
+                        }    
+                ?>
+            </section>
+            
         <h2 class="ui_header">פרטים אישיים</h2>
             <form class="peronal_info_list" method="post" action="includes/change_info_inc.php">
-                <label class="name_ui">שם</label>
-                <input name="username" class="peronal_info_item" value="<?php echo $username; ?>" spellcheck="false">
-                <label class="name_ui">אימייל</label>
-                <input name="usermail" class="peronal_info_item" value="<?php echo $useremail; ?>" spellcheck="false">
+                <label class="name_ui" for="usrname">שם</label>
+                <input name="username" id="usrname" class="peronal_info_item" value="<?php echo $username; ?>" spellcheck="false">
+                <label class="name_ui" for="usrmail">אימייל</label>
+                <input name="usermail" id="usrmail" class="peronal_info_item" value="<?php echo $useremail; ?>" spellcheck="false">
                 <label class="profile-error">
                     <?php
-                        if($_GET["error"] == "UsernameNotUnique" ){
-                            echo "שם המשתמש תפוס";
-                        }else if($_GET["error"] == "UsermailNotUnique" ){
-                            echo "המייל כבר בשימוש בחשבון אחר";
-                        }else if($_GET["error"] == "UsernameInvalid" ){
-                            echo "שם המשתמש אינו תקין";
-                        }else if($_GET["error"] == "EmailInvalid" ){
-                            echo "המייל אינו תקין";
-                        }else if($_GET["error"] == "EmptyInputs"){
-                            echo "נא למלא את כל התאים";
-                        }else if($_GET["error"] == "ChangeTimeNotExpired"){
-                            echo "לא עבר חודש מהפעם הקודמת ששינתה את הפרטים שלך <br>הפעם הבאה שניתן לשנות היא בתאריך ".$_GET["nextDateToChange"];
-                        }else{
-                            echo $_GET["error"];
+                        if (isset($_GET["error"])) {
+                            if($_GET["error"] == "UsernameNotUnique" ){
+                                echo "שם המשתמש תפוס";
+                            }else if($_GET["error"] == "UsermailNotUnique" ){
+                                echo "המייל כבר בשימוש בחשבון אחר";
+                            }else if($_GET["error"] == "UsernameInvalid" ){
+                                echo "שם המשתמש אינו תקין";
+                            }else if($_GET["error"] == "EmailInvalid" ){
+                                echo "המייל אינו תקין";
+                            }else if($_GET["error"] == "EmptyInputs"){
+                                echo "נא למלא את כל התאים";
+                            }else if($_GET["error"] == "ChangeTimeNotExpired"){
+                                echo "לא עבר חודש מהפעם הקודמת ששינתה את הפרטים שלך <br>הפעם הבאה שניתן לשנות היא בתאריך ".$_GET["nextDateToChange"];
+                            }else if($_GET["error"] == "SameInfo"){
+                                echo "המידע שווה למידע הקודם<br> על מנת לשנות ליחצו על התוכן שאותו אתם רוצים לשנות ועירכו אותו";
+                            }else{
+                                echo $_GET["error"];
+                            }
                         }
                     ?>
                 </label>
                     <input class="change_paswd_btn" id="size" type="submit" value="ערוך">
                     <p class="profile-error">ניתן לשנות את הפרטים כל 30 יום</p> 
-                </form>
-            </ul>
+            </form>
+            <?php 
+                    if($username == "Admin"){
+                        echo '
+                        <h2 class="ui_header">יצירת בלוג חדש</h2>
+                        <form class="peronal_info_list" method="post" action="blog.php">
+                            <input name="title" class="peronal_info_item" placeholder="כותרת" spellcheck="false">
+                            <input name="content" class="peronal_info_item" placeholder="תוכן הבלוג" spellcheck="false">
+                            <div class="profile_blog_btn" id="blog_btn1" onclick="showProfileInput()">הוסף תמונת פרופיל</div>
+                            <input name="profile_img" class="peronal_info_item" id="blog_input1" placeholder="שם תמונת הפרופיל" spellcheck="false">
+                            <div class="profile_blog_btn" id="blog_btn2" onclick="showImgInput()">הוסף תמונה</div>
+                            <input name="img" class="peronal_info_item" id="blog_input2" placeholder="שם התמונה" spellcheck="false">
+                            <input name="new_blog_post" class="profile_blog_btn " type="submit" value="שליחת בלוג">
+                        </form>
+                        <h2 class="ui_header">הוספת מקור</h2>
+                        <form class="peronal_info_list" method="post" action="includes/change_info_inc.php">
+                        <div class="profile_blog_btn" id="res_btn1" onclick="showNewResInput(`video`)">סרטון</div>
+                        <div class="profile_blog_btn" id="res_btn2" onclick="showNewResInput(`playlist`)">פלייליסט</div>
+                        <div class="profile_blog_btn" id="res_btn3" onclick="showNewResInput(`channel`)">ערוץ</div>
+                        <input name="" class="peronal_info_item" id="res_input1" placeholder="" spellcheck="false">
+                        <input name="" class="peronal_info_item" id="res_input2" placeholder="" spellcheck="false">
+                        <input name="" class="peronal_info_item" id="res_input3" placeholder="" spellcheck="false">
+                        <input name="" class="peronal_info_item" id="res_input4" placeholder="" spellcheck="false">
+                        <input name="new_blog_post" id="res_submit" class="profile_blog_btn " type="submit" value="שליחה">
+                        </form>
+                        <h2 class="ui_header">יצירה או עדכון של קורס</h2>
+                        <form class="peronal_info_list" method="post" action="includes/change_info_inc.php">
+                    
+                        </form>
+                        ';
+                    }
+            ?>
             <form class="btn-form" action="includes/logout_inc.php">
-                    <input class="change_paswd_btn" type="submit" value="התנתקות">
+                    <input class="change_paswd_btn profile_btn" type="submit" value="התנתקות">
+            </form>
+            <form class="btn-form" action="includes/logout_inc.php">
+                    <input class="change_paswd_btn profile_btn" type="submit" value="מחק חשבון">
             </form>
     </main>
+    <script>
+        /***************************BLOG***************************** */
+        const btn1 =document.querySelector("#blog_btn1");
+        const btn2 =document.querySelector("#blog_btn2");
+        const input1 = document.querySelector("#blog_input1");
+        const input2 = document.querySelector("#blog_input2");
+        input1.style.display = "none";
+        input2.style.display = "none";
+        let isInput1opend = false;
+        let isInput2opend = false;
+        function showProfileInput(){
+            if(isInput1opend){
+                btn1.innerHTML = "הוסף תמונת פרופיל";
+                input1.style.display = "none";
+                isInput1opend = false;
+            }else{
+                btn1.innerHTML = "סגור";
+                input1.style.display = "block";
+                isInput1opend = true;
+            }
+            
+        }
+        function showImgInput() {
+            if(isInput2opend){
+                btn2.innerHTML = "הוסף תמונה";
+                input2.style.display = "none";
+                isInput2opend = false;
+            }else{
+                btn2.innerHTML = "סגור";
+                input2.style.display = "block";
+                isInput2opend = true;
+            }
+        }
+        /***********************RESOURCES************************** */
+        const videoBtn =document.querySelector("#res_btn1");
+        const playlistBtn =document.querySelector("#res_btn2");
+        const channelBtn =document.querySelector("#res_btn3");
+        const resInput1 = document.querySelector("#res_input1");
+        const resInput2 = document.querySelector("#res_input2");
+        const resInput3 = document.querySelector("#res_input3");
+        const resInput4 = document.querySelector("#res_input4");
+        const resSubmit = document.querySelector("#res_submit");
+        resInput1.style.display = "none";
+        resInput2.style.display = "none";
+        resInput3.style.display = "none";
+        resInput4.style.display = "none";
+        resSubmit.style.display = "none";
+        let isVideo = true;
+        let isPLaylist = true;
+        let isChannel = true;
+        function showNewResInput(type) {
+            if(type === "video"){
+                if(isVideo){
+                    playlistBtn.style.display = "none";
+                    channelBtn.style.display = "none";
+                    resInput1.style.display = "block";
+                    resInput1.placeholder = "title";
+                    resInput2.style.display = "block";
+                    resInput2.placeholder = "video id";
+                    resSubmit.style.display = "block";
+                    isVideo = false;
+                }else{
+                    resInput1.style.display = "none";
+                    resInput2.style.display = "none";
+                    resSubmit.style.display = "none";
+                    playlistBtn.style.display = "block";
+                    channelBtn.style.display = "block";
+                    isPLaylist = true;
+                }
+            }else if(type === "playlist"){
+                if(isPLaylist){
+                    videoBtn.style.display = "none";
+                    channelBtn.style.display = "none";
+                    resInput1.style.display = "block";
+                    resInput1.placeholder = "image";
+                    resInput2.style.display = "block";
+                    resInput2.placeholder = "playlist link";
+                    resInput3.style.display = "block";
+                    resInput3.placeholder = "title";
+                    resInput4.style.display = "block";
+                    resInput4.placeholder = "first video id";
+                    resSubmit.style.display = "block";
+                    isPLaylist = false;
+                }else{
+                    resInput1.style.display = "none";
+                    resInput2.style.display = "none";
+                    resInput3.style.display = "none";
+                    resInput4.style.display = "none";
+                    resSubmit.style.display = "none";
+                    videoBtn.style.display = "block";
+                    channelBtn.style.display = "block";
+                    isPLaylist = true;
+                }
+            }else{
+                if(isChannel){
+                    videoBtn.style.display = "none";
+                    playlistBtn.style.display = "none";
+                    resInput1.style.display = "block";
+                    resInput1.placeholder = "image";
+                    resInput2.style.display = "block";
+                    resInput2.placeholder = "channel link";
+                    resInput3.style.display = "block";
+                    resInput3.placeholder = "channel name";
+                    isChannel = false;
+                }else{
+                    videoBtn.style.display = "block";
+                    playlistBtn.style.display = "block";
+                    resInput1.style.display = "none";
+                    resInput2.style.display = "none";
+                    resInput3.style.display = "none";
+                    resSubmit.style.display = "none";
+                    isChannel = true;
+                }
+            }
+        }
+    </script>
 <?php 
     include_once('includes/footer.php'); 
 ?>

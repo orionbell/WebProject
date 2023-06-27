@@ -4,7 +4,7 @@
     $playlist_already_defined = array();
     $videos = array();
     //initializtion of the json files
-    if($_GET["topic"] != ""){
+    if(isset($_GET["topic"])){
         $topic = $_GET["topic"];
         $pjson = file_get_contents('./resources/'.$topic.'/playlists.json');
         $pjson_decoded = json_decode($pjson, true);
@@ -43,7 +43,7 @@
 <h2 class="subheader" id="videos">סרטונים</h2>
 <main class="videos_container">
 <?php
-    if($_GET["topic"] != ""){
+    if(isset($_GET["topic"])){
         $video_json = file_get_contents('./resources/'.$topic.'/youtube.json');
         $video_json_decoded = json_decode($video_json, true);
         for ($i = 0; $i < count($video_json_decoded); $i++) {
@@ -87,7 +87,7 @@
 
 </main>
 <?php 
-    if($_GET["topic"]!= ""){
+if(isset($_GET["topic"])){
         if(count($pjson_decoded)){
             echo '<h2 class="subheader" id="playlists">פלייליסטים</h2>';
         }
@@ -97,7 +97,7 @@
 ?>
 <main class="videos_container">
 <?php 
-    if($_GET["topic"] != ""){
+if(isset($_GET["topic"])){
         for ($i = 0; $i < count($pjson_decoded); $i++) {
             $jsonObj = $pjson_decoded[$i];
             $item = '
@@ -143,7 +143,7 @@
 ?>
 </main>
 <?php 
-    if($_GET["topic"] != ""){
+    if(isset($_GET["topic"])){
         if(count($cjson_decoded)){
             echo '<h2 class="subheader" id="channels">ערוצים ששווה לבדוק</h2>';
         }
@@ -154,7 +154,7 @@
 
 <main class="channel_container">
 <?php
-    if($_GET["topic"] != ""){
+    if(isset($_GET["topic"])){
         for ($i = 0; $i < count($cjson_decoded); $i++) {
             $jsonObj = $cjson_decoded[$i];
             $item = '

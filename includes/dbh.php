@@ -4,29 +4,32 @@ $db_server_name = 'localhost';
 $db_user_name = 'root';
 $db_user_passwd = 'MysqlServer#yishai';
 $db_name = 'CS israel';
-require_once "./errors.php";
 // Creating connection to the database
 $conn = mysqli_connect($db_server_name,$db_user_name,$db_user_passwd,$db_name);
 if (!$conn) {
     die("Connection faild: ". mysqli_connect_error());
 }
+$_SESSION["db_conn"] = $conn;
 function add_user($username,$email,$passwd){
     global $conn;
-    $sql = "INSERT INTO users (user_name,user_email,user_password) VALUES (?,?,?);";
+    $user_courses = serialize([]);
+    $sql = "INSERT INTO users (user_name,user_email,user_password,user_courses) VALUES (?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)) {
         echo "Something went wrong :(";
     }else{
-        mysqli_stmt_bind_param($stmt,"sss",$username,$email,$passwd);
+        mysqli_stmt_bind_param($stmt,"ssss",$username,$email,$passwd,$user_courses);
         mysqli_stmt_execute($stmt);
         $_SESSION["username"] = $username;
         $_SESSION["useremail"] = $email;
+        $_SESSION["user_courses"] = $user_courses;
         header("Location: ../index.php");
         exit();
     }
 }
 
 function login($user,$passwd){
+    require_once "./errors.php";
     global $conn;
     $sql = "SELECT * FROM users WHERE user_name = ? OR user_email = ? AND user_password = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -43,6 +46,7 @@ function login($user,$passwd){
         }else{
             $_SESSION["username"] = $info["user_name"];
             $_SESSION["useremail"] = $info["user_email"];
+            $_SESSION["user_courses"] = get_user_courses($info["user_name"]);
             header("Location: ../index.php");
             exit();
         }
@@ -104,7 +108,37 @@ function change_user_info($new_username,$new_email,$is_not_same_name,$is_not_sam
                 header("Location: ../profile.php?error=ChangeTimeNotExpired&nextDateToChange=".$date);
             }
         }
+}
+
+function get_user_courses($username){
+    global $conn;
+    $sql = "SELECT user_courses FROM users WHERE user_name = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"s",$username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $info = mysqli_fetch_assoc($result);
+        return $info["user_courses"];
     }
+}
+
+function get_course_info($course_name){
+    global $conn;
+    $sql = "SELECT * FROM courses WHERE course_name = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"s",$course_name);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $info = mysqli_fetch_assoc($result);
+        return $info;
+    }
+}
 function add_course_to_user($course_name){
     
 }

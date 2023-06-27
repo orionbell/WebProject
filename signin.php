@@ -10,20 +10,22 @@
         <a href="login.php" style="" class="already_login_text">יש לי כבר חשבון</a>
         <p class="error">
             <?php
-                if($_GET["error"] == "EmptyInputs"){
-                    echo "נא למלא את כל התאים";
-                }else if($_GET["error"] == "PasswdNotMatch" ){
-                    echo "הסיסמאות אינן תואמות";
-                }else if($_GET["error"] == "PasswdNotStrong" ){
-                    echo "הסיסמה צריכה להיות באורך של לפחות 9 תווים";
-                }else if($_GET["error"] == "UsernameInvalid" ){
-                    echo "שם המשתמש אינו תקין";
-                }else if($_GET["error"] == "EmailInvalid" ){
-                    echo "המייל אינו תקין";
-                }else if($_GET["error"] == "UsernameNotUnique" ){
-                    echo "שם המשתמש תפוס";
-                }else if($_GET["error"] == "UsermailNotUnique" ){
-                    echo "המייל כבר בשימוש בחשבון אחר";
+                if (isset($_GET["error"])) {
+                    if($_GET["error"] == "EmptyInputs"){
+                        echo "נא למלא את כל התאים";
+                    }else if($_GET["error"] == "PasswdNotMatch" ){
+                        echo "הסיסמאות אינן תואמות";
+                    }else if($_GET["error"] == "PasswdNotStrong" ){
+                        echo "הסיסמה צריכה להיות באורך של לפחות 9 תווים";
+                    }else if($_GET["error"] == "UsernameInvalid" ){
+                        echo "שם המשתמש אינו תקין";
+                    }else if($_GET["error"] == "EmailInvalid" ){
+                        echo "המייל אינו תקין";
+                    }else if($_GET["error"] == "UsernameNotUnique" ){
+                        echo "שם המשתמש תפוס";
+                    }else if($_GET["error"] == "UsermailNotUnique" ){
+                        echo "המייל כבר בשימוש בחשבון אחר";
+                    }
                 }
             ?>
         </p>
