@@ -1,35 +1,31 @@
 <!-- Need to add a writng functionality -->
 <?php
 include_once('includes/header.php');
+require_once "./includes/dbh.php";
 ?>
 <!--need to write a way to get notify about new blog message -->
 <div class="blog_container">
     <main class="msg_container">
         <h2 class="subheader" style="margin:0 auto;">הודעות ועדכונים</h2>
         <?php
-        if (isset($_POST["new_blog_post"])) {
+        if (isset($_POST["new_blog_post"]) && $_POST["delete_blog"] != 0) {
+            delete_blog_post($_POST["delete_blog"]);
+        }else if (isset($_POST["new_blog_post"])) {
             if (!empty($_POST["title"]) && !empty($_POST["content"])) {
-                $json_file = file_get_contents('./blog/messages.json');
-                $comnt_json = json_decode($json_file,true);
-                $comnt_json[] = ['title' => $_POST['title'],'date' => date("d/m/Y"), 'content'=> $_POST['content']];
-                if (isset($_POST["profile_img"]) && isset($_POST["img"])) {
-                    $comnt_json[] = ['title' => $_POST['title'],'date' => date("d/m/Y"), 'content'=> $_POST['content'], 'profile'=> $_POST["profile_img"], 'imgUrl'=> $_POST["img"]];
+                if ($_POST["profile_img"] != "" && $_POST["img"] != "") {
+                    create_blog_post($_POST['title'],$_POST['content'],$_POST["img"],$_POST["profile_img"],date("Y-m-d"));
+                }else
+                if ($_POST["profile_img"] != "") {
+                    create_blog_post($_POST['title'],$_POST['content'],$_POST["img"],"default.png",date("Y-m-d"));
+                }else if($_POST["img"] != ""){
+                    create_blog_post($_POST['title'],$_POST['content'],"",$_POST["profile_img"],date("Y-m-d"));
                 }
-                if (isset($_POST["img"])) {
-                    $comnt_json[] = ['title' => $_POST['title'],'date' => date("d/m/Y"), 'content'=> $_POST['content'], 'imgUrl'=> $_POST["img"]];
-                }else{
-                    $comnt_json[] = ['title' => $_POST['title'],'date' => date("d/m/Y"), 'content'=> $_POST['content'], 'imgUrl'=> $comnt_json[count($comnt_json) -1]["imgUrl"]];
+                else{
+                    create_blog_post($_POST['title'],$_POST['content'],"","default.png",date("Y-m-d"));
                 }
-                if (isset($_POST["profile_img"])) {
-                    $comnt_json[] = ['title' => $_POST['title'],'date' => date("d/m/Y"), 'content'=> $_POST['content'], 'profile'=> $_POST["profile_img"]];
-                }else{
-                    $comnt_json[] = ['title' => $_POST['title'],'date' => date("d/m/Y"), 'content'=> $_POST['content'], 'imgUrl'=> $comnt_json[count($comnt_json) -1]["profile"]];
-                }
-                $json_string = json_encode($comnt_json, JSON_PRETTY_PRINT);
-                file_put_contents('blog/messages.json',$json_string);
             }
         }
-        include_once('./blog/msg_mgt.php');
+        include_once('./includes/msg_mgt.php');
         ?>
     </main>
     <!-- <section class="user_msg_box">

@@ -63,7 +63,11 @@
                             <input name="profile_img" class="peronal_info_item" id="blog_input1" placeholder="שם תמונת הפרופיל" spellcheck="false">
                             <div class="profile_blog_btn" id="blog_btn2" onclick="showImgInput()">הוסף תמונה</div>
                             <input name="img" class="peronal_info_item" id="blog_input2" placeholder="שם התמונה" spellcheck="false">
-                            <input name="new_blog_post" class="profile_blog_btn " type="submit" value="שליחת בלוג">
+                            <br>
+                            <br>
+                            <div class="profile_blog_btn" id="blog_btn3" onclick="showDeleteInput()">מחק בלוג</div>
+                            <input name="delete_blog" class="peronal_info_item" type="number" min="0" value="0" id="blog_input3" placeholder="id" spellcheck="false">
+                            <input name="new_blog_post" class="profile_blog_btn " type="submit" value="שליחה">
                         </form>
                         <h2 class="ui_header">הוספת מקור</h2>
                         <form class="peronal_info_list" method="post" action="includes/change_info_inc.php">
@@ -87,19 +91,23 @@
                     <input class="change_paswd_btn profile_btn" type="submit" value="התנתקות">
             </form>
             <form class="btn-form" action="includes/logout_inc.php">
-                    <input class="change_paswd_btn profile_btn" type="submit" value="מחק חשבון">
+                    <input name="delete_account"class="change_paswd_btn profile_btn" type="submit" value="מחק חשבון">
             </form>
     </main>
     <script>
         /***************************BLOG***************************** */
         const btn1 =document.querySelector("#blog_btn1");
         const btn2 =document.querySelector("#blog_btn2");
+        const btn3 =document.querySelector("#blog_btn3");
         const input1 = document.querySelector("#blog_input1");
         const input2 = document.querySelector("#blog_input2");
+        const input3 = document.querySelector("#blog_input3");
         input1.style.display = "none";
         input2.style.display = "none";
+        input3.style.display = "none";
         let isInput1opend = false;
         let isInput2opend = false;
+        let isInput3opend = false;
         function showProfileInput(){
             if(isInput1opend){
                 btn1.innerHTML = "הוסף תמונת פרופיל";
@@ -121,6 +129,17 @@
                 btn2.innerHTML = "סגור";
                 input2.style.display = "block";
                 isInput2opend = true;
+            }
+        }
+        function showDeleteInput() {
+            if(isInput3opend){
+                btn3.innerHTML = "מחק בלוג";
+                input3.style.display = "none";
+                isInput3opend = false;
+            }else{
+                btn3.innerHTML = "סגור";
+                input3.style.display = "block";
+                isInput3opend = true;
             }
         }
         /***********************RESOURCES************************** */
@@ -157,7 +176,7 @@
                     resSubmit.style.display = "none";
                     playlistBtn.style.display = "block";
                     channelBtn.style.display = "block";
-                    isPLaylist = true;
+                    isVideo = true;
                 }
             }else if(type === "playlist"){
                 if(isPLaylist){

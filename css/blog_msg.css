@@ -112,6 +112,11 @@
     display: none;
   }
 
+.blog_id{
+    position: absolute;
+    left: 1em;
+    top: 0.8em;
+}
 @media (max-width:800px) {
     .msg_container {
         width: 90%;

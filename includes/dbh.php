@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 $db_server_name = 'localhost';
 $db_user_name = 'root';
 $db_user_passwd = 'MysqlServer#yishai';
@@ -137,6 +139,50 @@ function get_course_info($course_name){
         $result = mysqli_stmt_get_result($stmt);
         $info = mysqli_fetch_assoc($result);
         return $info;
+    }
+}
+
+function get_blog_msgs($limit){
+    global $conn;
+    $sql = "SELECT * FROM blogs LIMIT ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"i",$limit);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        while($row = mysqli_fetch_assoc($result)){
+            $json[] = $row;
+       }
+        return $json;
+    }
+}
+
+function create_blog_post($title,$content,$img,$profile,$published){
+    global $conn;
+    $sql = "INSERT INTO blogs (title,content,img,profile_img,published) VALUES (?,?,?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"sssss",$title,$content,$img,$profile,$published);
+        mysqli_stmt_execute($stmt);
+        header("Location: ./blog.php");
+        exit();
+    }
+}
+function delete_blog_post($id){
+    global $conn;
+    $sql = "DELETE FROM blogs WHERE id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"s",$id);
+        mysqli_stmt_execute($stmt);
+        header("Location: ./blog.php");
+        exit();
     }
 }
 function add_course_to_user($course_name){
