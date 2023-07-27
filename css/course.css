@@ -54,8 +54,81 @@
     width: 90%;
     height: 100%;
 }
+/*########################################################################*/
 
-@media (max-width:700px) {
+.desc{
+    width: 100%;
+    font-size: 1.1rem;
+    direction: rtl;
+    background-size: cover;
+}
+.desc_text{
+    text-align: right;
+    margin-top: 0;
+    color: white;
+    text-shadow: 0 0 10px white ;
+    line-height: 2em;
+}
+.buy_container{
+    position: relative;
+    width: 40%;
+    border: 1px solid rgba(43, 43, 43, 0.568);
+    padding: 0 1em;
+    padding-right: 4em;
+    z-index: 10;
+}
+.buy_container:before {
+    position: absolute;
+    content: '';
+    background: var(--color6);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.6;
+    z-index: -1;
+    transform: rotate(15deg) scale(2);
+}
+.buy_form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.subj_list{
+    margin-top: 2em;
+    margin-right: 2em;
+    text-align: right;
+    color: white;
+    text-shadow: 0 0 10px white ;
+    line-height: 2em;
+}
+.subject_list_item{
+    margin-right: 1em;
+}
+.buy_btn{
+    margin: 1em;
+    width: 60%;
+    font-size: 1.2rem;
+    padding: 0.5em;
+    background-color: #764ada;
+    overflow: hidden;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.buy_btn:hover{
+    box-shadow: 0 0 20px #764ada ;
+}
+@media (max-width:800px) {
+    .desc{
+        font-size: 1em;
+        padding: 1em;
+        border-radius: 0.5em;
+    }
+    .buy_container{
+        width: 80%;
+    }
     .course_container .videolist_container{
         flex-direction: column;
     }
@@ -66,11 +139,32 @@
         margin-left: 10%;
         width:80%;
     }
-
+    .desc_text{
+        text-align: center;
+        font-size: 0.6rem;
+    }
+    .course_img{
+        float: none;
+        width: 98%;
+        margin: 0 auto;
+        margin-bottom: 1em;
+    }
     .playlist_videos_container{
         margin: 0 auto;
         max-height: 80vh;
         width: 80%;
+    }
+    .subj_list{
+        font-size: 0.6rem;
+        text-align: center;
+        margin-right: 0;
+    }
+    .subject_list_item{
+        font-size: 0.4rem;
+        margin-right: 0;
+    }
+    .buy_btn{
+        font-size: 0.7rem;
     }
 }
 @media (max-width:1100px) and (min-width:800px){
@@ -78,5 +172,19 @@
         margin-top: 25%;
         height: 50%;
         border: solid red 0.1em;
+    }
+    .desc_text{
+        font-size: 0.8rem;
+    }
+    .course_img{
+        float: none;
+        width: 98%;
+        margin: 0 auto;
+        margin-bottom: 4em;
+    }
+}
+@media (min-width:2000px){
+    .signlogin_form{
+        margin-bottom: auto;
     }
 }

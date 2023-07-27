@@ -22,8 +22,8 @@ function add_user($username,$email,$passwd){
     }else{
         mysqli_stmt_bind_param($stmt,"ssss",$username,$email,$passwd,$user_courses);
         mysqli_stmt_execute($stmt);
-        $_SESSION["username"] = $username;
         $_SESSION["useremail"] = $email;
+        $_SESSION["username"] = $username;
         $_SESSION["user_courses"] = $user_courses;
         header("Location: ../index.php");
         exit();

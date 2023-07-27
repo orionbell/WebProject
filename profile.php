@@ -15,7 +15,7 @@
                         if (count(unserialize($user_courses)) <= 0) {
                             echo "<h2 class='empty_courses',><a href='./index.php' class'go_buy'>עדין לא קנית אף קורס לצפייה בקורסים לחץ</a></h2>";
                         }else{
-                            
+                            echo "";
                         }    
                 ?>
             </section>
@@ -50,40 +50,52 @@
                     ?>
                 </label>
                     <input class="change_paswd_btn" id="size" type="submit" value="ערוך">
-                    <p class="profile-error">ניתן לשנות את הפרטים כל 30 יום</p> 
+                    <p class="profile-error">ניתן לשנות את הפרטים כל 30 יום</p>
             </form>
             <?php 
                     if($username == "Admin"){
                         echo '
-                        <h2 class="ui_header">יצירת בלוג חדש</h2>
-                        <form class="peronal_info_list" method="post" action="blog.php">
-                            <input name="title" class="peronal_info_item" placeholder="כותרת" spellcheck="false">
-                            <input name="content" class="peronal_info_item" placeholder="תוכן הבלוג" spellcheck="false">
-                            <div class="profile_blog_btn" id="blog_btn1" onclick="showProfileInput()">הוסף תמונת פרופיל</div>
-                            <input name="profile_img" class="peronal_info_item" id="blog_input1" placeholder="שם תמונת הפרופיל" spellcheck="false">
-                            <div class="profile_blog_btn" id="blog_btn2" onclick="showImgInput()">הוסף תמונה</div>
-                            <input name="img" class="peronal_info_item" id="blog_input2" placeholder="שם התמונה" spellcheck="false">
-                            <br>
-                            <br>
-                            <div class="profile_blog_btn" id="blog_btn3" onclick="showDeleteInput()">מחק בלוג</div>
-                            <input name="delete_blog" class="peronal_info_item" type="number" min="0" value="0" id="blog_input3" placeholder="id" spellcheck="false">
-                            <input name="new_blog_post" class="profile_blog_btn " type="submit" value="שליחה">
-                        </form>
-                        <h2 class="ui_header">הוספת מקור</h2>
-                        <form class="peronal_info_list" method="post" action="includes/change_info_inc.php">
-                        <div class="profile_blog_btn" id="res_btn1" onclick="showNewResInput(`video`)">סרטון</div>
-                        <div class="profile_blog_btn" id="res_btn2" onclick="showNewResInput(`playlist`)">פלייליסט</div>
-                        <div class="profile_blog_btn" id="res_btn3" onclick="showNewResInput(`channel`)">ערוץ</div>
-                        <input name="" class="peronal_info_item" id="res_input1" placeholder="" spellcheck="false">
-                        <input name="" class="peronal_info_item" id="res_input2" placeholder="" spellcheck="false">
-                        <input name="" class="peronal_info_item" id="res_input3" placeholder="" spellcheck="false">
-                        <input name="" class="peronal_info_item" id="res_input4" placeholder="" spellcheck="false">
-                        <input name="new_blog_post" id="res_submit" class="profile_blog_btn " type="submit" value="שליחה">
-                        </form>
-                        <h2 class="ui_header">יצירה או עדכון של קורס</h2>
-                        <form class="peronal_info_list" method="post" action="includes/change_info_inc.php">
-                    
-                        </form>
+                        <br>
+                        <div class="profile_blog_btn" id="open_admin_panel" onclick="openAdminPanel()">open admin panel</div>
+                        <div id="admin_panel">
+                            <h2 class="ui_header">יצירת בלוג חדש</h2>
+                            <form class="peronal_info_list" method="post" action="blog.php">
+                                <input name="title" class="peronal_info_item" placeholder="כותרת" spellcheck="false">
+                                <input name="content" class="peronal_info_item" placeholder="תוכן הבלוג" spellcheck="false">
+                                <div class="profile_blog_btn" id="blog_btn1" onclick="showProfileInput()">הוסף תמונת פרופיל</div>
+                                <input name="profile_img" class="peronal_info_item" id="blog_input1" placeholder="שם תמונת הפרופיל" spellcheck="false">
+                                <div class="profile_blog_btn" id="blog_btn2" onclick="showImgInput()">הוסף תמונה</div>
+                                <input name="img" class="peronal_info_item" id="blog_input2" placeholder="שם התמונה" spellcheck="false">
+                                <br>
+                                <br>
+                                <div class="profile_blog_btn" id="blog_btn3" onclick="showDeleteInput()">מחק בלוג</div>
+                                <input name="delete_blog" class="peronal_info_item" type="number" min="0" value="0" id="blog_input3" placeholder="id" spellcheck="false">
+                                <input name="new_blog_post" class="profile_blog_btn " type="submit" value="שליחה">
+                            </form>
+                            <h2 class="ui_header">הוספת מקור</h2>
+                            <form class="peronal_info_list" method="post" action="resources.php">
+                                <div class="profile_blog_btn" id="res_btn1" onclick="showNewResInput(`video`)">סרטון</div>
+                                <div class="profile_blog_btn" id="res_btn2" onclick="showNewResInput(`playlist`)">פלייליסט</div>
+                                <div class="profile_blog_btn" id="res_btn3" onclick="showNewResInput(`channel`)">ערוץ</div>
+                                <input name="" class="peronal_info_item" id="res_input1" placeholder="" spellcheck="false">
+                                <input name="" class="peronal_info_item" id="res_input2" placeholder="" spellcheck="false">
+                                <input name="" class="peronal_info_item" id="res_input3" placeholder="" spellcheck="false">
+                                <input name="" class="peronal_info_item" id="res_input4" placeholder="" spellcheck="false">
+                                <input name="new_blog_post" id="res_submit" class="profile_blog_btn " type="submit" value="שליחה">
+                            </form>
+                            <h2 class="ui_header">יצירה או עדכון של קורס</h2>
+                            <form class="peronal_info_list" method="post" action="profile.php">
+                            <div class="profile_blog_btn" id="course_btn1" onclick="displayCoursePanel()">פתח</div>
+                                <input name="" class="peronal_info_item" id="course_input1" placeholder="course name" spellcheck="false">
+                                <input name="" class="peronal_info_item" id="course_input2" placeholder="course price" spellcheck="false">
+                                <input name="" class="peronal_info_item" id="course_input3" placeholder="course topic" spellcheck="false">
+                                <input name="" class="peronal_info_item" id="course_input4" placeholder="course discount" spellcheck="false">
+                                <input name="" class="peronal_info_item" id="course_input5" placeholder="course image" spellcheck="false">
+                                <input name="" class="peronal_info_item" id="course_input6" placeholder="course description" spellcheck="false">
+                                <input name="new_blog_post" id="course_submit" class="profile_blog_btn " type="submit" value="שליחה">
+                            </form>
+                        </div>
+                        <br>
                         ';
                     }
             ?>
@@ -94,137 +106,10 @@
                     <input name="delete_account"class="change_paswd_btn profile_btn" type="submit" value="מחק חשבון">
             </form>
     </main>
-    <script>
-        /***************************BLOG***************************** */
-        const btn1 =document.querySelector("#blog_btn1");
-        const btn2 =document.querySelector("#blog_btn2");
-        const btn3 =document.querySelector("#blog_btn3");
-        const input1 = document.querySelector("#blog_input1");
-        const input2 = document.querySelector("#blog_input2");
-        const input3 = document.querySelector("#blog_input3");
-        input1.style.display = "none";
-        input2.style.display = "none";
-        input3.style.display = "none";
-        let isInput1opend = false;
-        let isInput2opend = false;
-        let isInput3opend = false;
-        function showProfileInput(){
-            if(isInput1opend){
-                btn1.innerHTML = "הוסף תמונת פרופיל";
-                input1.style.display = "none";
-                isInput1opend = false;
-            }else{
-                btn1.innerHTML = "סגור";
-                input1.style.display = "block";
-                isInput1opend = true;
-            }
-            
-        }
-        function showImgInput() {
-            if(isInput2opend){
-                btn2.innerHTML = "הוסף תמונה";
-                input2.style.display = "none";
-                isInput2opend = false;
-            }else{
-                btn2.innerHTML = "סגור";
-                input2.style.display = "block";
-                isInput2opend = true;
-            }
-        }
-        function showDeleteInput() {
-            if(isInput3opend){
-                btn3.innerHTML = "מחק בלוג";
-                input3.style.display = "none";
-                isInput3opend = false;
-            }else{
-                btn3.innerHTML = "סגור";
-                input3.style.display = "block";
-                isInput3opend = true;
-            }
-        }
-        /***********************RESOURCES************************** */
-        const videoBtn =document.querySelector("#res_btn1");
-        const playlistBtn =document.querySelector("#res_btn2");
-        const channelBtn =document.querySelector("#res_btn3");
-        const resInput1 = document.querySelector("#res_input1");
-        const resInput2 = document.querySelector("#res_input2");
-        const resInput3 = document.querySelector("#res_input3");
-        const resInput4 = document.querySelector("#res_input4");
-        const resSubmit = document.querySelector("#res_submit");
-        resInput1.style.display = "none";
-        resInput2.style.display = "none";
-        resInput3.style.display = "none";
-        resInput4.style.display = "none";
-        resSubmit.style.display = "none";
-        let isVideo = true;
-        let isPLaylist = true;
-        let isChannel = true;
-        function showNewResInput(type) {
-            if(type === "video"){
-                if(isVideo){
-                    playlistBtn.style.display = "none";
-                    channelBtn.style.display = "none";
-                    resInput1.style.display = "block";
-                    resInput1.placeholder = "title";
-                    resInput2.style.display = "block";
-                    resInput2.placeholder = "video id";
-                    resSubmit.style.display = "block";
-                    isVideo = false;
-                }else{
-                    resInput1.style.display = "none";
-                    resInput2.style.display = "none";
-                    resSubmit.style.display = "none";
-                    playlistBtn.style.display = "block";
-                    channelBtn.style.display = "block";
-                    isVideo = true;
-                }
-            }else if(type === "playlist"){
-                if(isPLaylist){
-                    videoBtn.style.display = "none";
-                    channelBtn.style.display = "none";
-                    resInput1.style.display = "block";
-                    resInput1.placeholder = "image";
-                    resInput2.style.display = "block";
-                    resInput2.placeholder = "playlist link";
-                    resInput3.style.display = "block";
-                    resInput3.placeholder = "title";
-                    resInput4.style.display = "block";
-                    resInput4.placeholder = "first video id";
-                    resSubmit.style.display = "block";
-                    isPLaylist = false;
-                }else{
-                    resInput1.style.display = "none";
-                    resInput2.style.display = "none";
-                    resInput3.style.display = "none";
-                    resInput4.style.display = "none";
-                    resSubmit.style.display = "none";
-                    videoBtn.style.display = "block";
-                    channelBtn.style.display = "block";
-                    isPLaylist = true;
-                }
-            }else{
-                if(isChannel){
-                    videoBtn.style.display = "none";
-                    playlistBtn.style.display = "none";
-                    resInput1.style.display = "block";
-                    resInput1.placeholder = "image";
-                    resInput2.style.display = "block";
-                    resInput2.placeholder = "channel link";
-                    resInput3.style.display = "block";
-                    resInput3.placeholder = "channel name";
-                    isChannel = false;
-                }else{
-                    videoBtn.style.display = "block";
-                    playlistBtn.style.display = "block";
-                    resInput1.style.display = "none";
-                    resInput2.style.display = "none";
-                    resInput3.style.display = "none";
-                    resSubmit.style.display = "none";
-                    isChannel = true;
-                }
-            }
-        }
-    </script>
-<?php 
+    
+<?php
+    if($username == "Admin"){
+        echo '<script src="js/admin_panel.js"></script>';
+    }
     include_once('includes/footer.php'); 
 ?>

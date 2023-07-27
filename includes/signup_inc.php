@@ -5,7 +5,6 @@ session_start();
         $mail = $_POST["email"];
         $pwd = $_POST["password"];
         $rt_pwd = $_POST["retype_password"];
-
         require_once "dbh.php";
         require_once "errors.php";
         if(empty_inputs($name,$mail,$pwd,$rt_pwd) !== false){
@@ -36,5 +35,28 @@ session_start();
             header("Location: ../signin.php?error=UsermailNotUnique");
             exit();
         }
-        add_user($name,$mail,hash('md5',$pwd));
+        $_SESSION["username"] = $name;
+        $_SESSION["useremail"] = $mail;
+        $_SESSION["userpassword"] = $pwd;
+        header("Location: ../signin.php?sendcode");
+        $pincode = rand(100000,999999);
+        $_SESSION["pincode"] = $pincode;
+    }else if(isset($_POST["verify"])) {
+        require_once "dbh.php";
+        $pincode = $_SESSION["pincode"];
+        if ($pincode == $_POST["pin"]) {
+            add_user($_SESSION["username"],$_SESSION["useremail"],hash("md5",$_SESSION["userpassword"]));
+            unset($_SESSION["pincode"]);
+            unset($_SESSION["username"]);
+            unset($_SESSION["useremail"]);
+            unset($_SESSION["userpassword"]);
+            exit();
+        }else if(empty($_POST["pin"])){
+            header("Location: ../signin.php?error=EmptyInputs");
+        }else{
+            header("Location: ../signin.php?error=PinNotMatch");
+        }
+    }else{
+        header("Location: ../signin.php");
+        exit();
     }

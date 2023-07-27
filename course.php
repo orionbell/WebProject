@@ -1,12 +1,17 @@
 <?php 
     include_once('includes/header.php');
+    require_once 'includes/dbh.php';
     $subcourse = $_GET["subcourse"];
-    echo '<h2 class="subheader">'.$subcourse.'</h2>';
-    $descript = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium vero odit numquam! Quos accusantium harum dolor beatae adipisci, velit temporibus inventore necessitatibus, vero praesentium culpa mollitia est et corporis tempora ullam! Necessitatibus accusamus voluptatem consequatur dicta illum eligendi facere, tempore, fuga rem voluptatum perferendis quae excepturi et, libero velit iusto quod aspernatur tenetur ex officia porro? Alias porro odit maiores debitis a nihil dolorum dolorem mollitia neque sunt dignissimos reiciendis omnis sed molestiae, illo fugiat ut repudiandae pariatur quasi assumenda nemo nostrum quidem tenetur. Quas sed, nemo voluptatibus id aliquid voluptates omnis, laborum reiciendis necessitatibus, incidunt laboriosam. Tempore, itaque modi.";
-    $course_img = "imgs/pic.jpg";
+    $info = get_course_info($subcourse);
+    $subcourse_nospaces = str_replace(' ', '',$subcourse);
+    $descript = $info["course_description"];
+    $course_img = $info["course_image"];
+    $total_price = $info["course_price"] * $info["course_discount"];
+    $subjects = unserialize($info["course_subjects"]);
 ?>
 <?php
     if (isset($_GET["watch"])) {
+        echo '<h2 class="subheader" style="margin:0 auto;">'.$subcourse.'</h2>';
         echo '<main class="course_container">
                 <div class="videolist_container">
                     <div class="course_video_container">
@@ -60,22 +65,31 @@
                     </div>
                 </div>
                 <div class="exercises">
-            
-                </div>
-            </main>';
+            </div>
+        </main>';
     }else{
+        $subjects_list = "";
+        foreach ($subjects as $subject) {
+            $subjects_list = $subjects_list . "<li class='subject_list_item'>$subject</li>\n";
+        }
         echo "
-        <div class='desc'>
-            <img src='$course_img' alt='' class='course_img'>
-            <p class='desc_text'>$descript</p>
+        <div class='desc' style='background-image: url(imgs/coursesinfo_pic/$subcourse_nospaces.jpg);'>
+            <div class='buy_container'>
+                <h2 class='subheader' style='margin:0 auto;'>$subcourse</h2>
+                <p class='desc_text'>$descript</p>
+                <ul class='subj_list'>
+                    <p class='desc_text'>נושאים הנלמדים בקורס:</p>
+                    $subjects_list
+                </ul>
+                <form action='' method='post' class='buy_form'>
+                    <input class='buy_btn' type='submit' value='קניית קורס $total_price ₪'>
+                </form>
+            </div>
         </div>
-        <div class='buy_container'>
-            <form action='' method='post' class='buy_form'>
-                <input class='buy_btn' type='submit' value='קנה'>
-            </form>
-        </div>";
+        <br>
+        ";
     }
 ?>
-<?php 
+<?php
     include_once('includes/footer.php'); 
 ?>

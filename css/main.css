@@ -5,6 +5,7 @@
     gap: 1.5em;
     grid-template-columns: repeat(4,1fr);
     color: white;
+    margin-bottom: 4em;
 }
 @media (max-width:1500px) {
     .container{
@@ -59,8 +60,6 @@
 }
 .desc{
     font-size: 1rem;
-    padding: 1.2em 0;
-    margin: 2em;
     text-decoration:none;
 }
 

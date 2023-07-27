@@ -23,6 +23,15 @@ body {
     font-family:Arial, Helvetica, sans-serif;
     background-color: var(--color5);
 }
+::-moz-selection { /* Code for Firefox */
+    color: white;
+  background: #7953cd;
+}
+
+::selection {
+  color: white;
+  background: #7953cd;
+}
 body::-webkit-scrollbar{
     display: none;
 }

@@ -1,5 +1,14 @@
 <?php
     include_once('includes/header.php');
+    if (isset($_SESSION["useremail"])) {
+        $usrmail = $_SESSION["useremail"];
+    if (isset($_GET["sendcode"])) {
+        include_once('includes/mail.php');
+        verify_email($usrmail,$_SESSION["pincode"]);
+        
+    }
+    }
+    if(!isset($_SESSION["useremail"])) : 
 ?>
     <form action="includes/signup_inc.php" method="post" class="signlogin_form">
         <h2 class="signin_title">הרשמה</h2>
@@ -31,6 +40,25 @@
         </p>
         <input type="submit" name="submit" value="היכנס" class="signlogin_inputs">
     </form>
+<?php else : ?>
+    <form action="includes/signup_inc.php" method="post" class="signlogin_form">
+        <h2 class="signin_title">אישור כתובת האימייל</h2>
+        <h6 class="signin_title" style="font-size:1rem;"><?php echo $usrmail?> הכנס את הקוד שנשלח לכתובת האימייל <br> על מנת לאשר את הכתובת</h6>
+        <input type="text" name="pin" class="signlogin_inputs" placeholder="קוד" pattern="[0-9][0-9][0-9][0-9][0-9][0-9]" spellcheck="false" maxlength="6">
+        <p class="error">
+            <?php
+                if (isset($_GET["error"])) {
+                    if($_GET["error"] == "EmptyInputs"){
+                        echo "נא להכניס את הקוד";
+                    }else if($_GET["error"] == "PinNotMatch" ){
+                        echo "הקוד אינו תואם למה שנשלח";
+                    }
+                }
+            ?>
+        </p>
+        <input type="submit" name="verify" value="אשר אימייל" class="signlogin_inputs">
+    </form>
+<?php endif; ?>
 <?php 
     include_once('includes/footer.php'); 
 ?>
