@@ -44,47 +44,42 @@ function send_mail($recipient,$subject,$message)
 function verify_email($usrmail,$pincode)
 {
   $mailtitle = "verifcation code";
-  $mailmsg = "
-      <!DOCTYPE html>
-      <html>
-      <head>
-          <style>
-          body{
-          background:linear-gradient(45deg,#0190cd,#764ada);
-          margin: 1em 2em;
-          direction: rtl;
-          }
-          h1{
-          padding: 1.5em;
-          font-size: 2rem;
-          color: white;
-          text-shadow: 0 0 10px white ;
-          }
-          h3{
-              padding: 1.5em;
-              font-size: 1rem;
-              color: white;
-              text-shadow: 0 0 10px white ;
-          }
-          p{
-              background:white;
-              display:inline;
-              padding: 1em;
-              margin: 2em;
-              font-size: 1rem;
-              color:  #764ada ;
-              text-shadow: 0 0 10px #764ada ;
-              border-radius:10px;
-          }
-          </style>
-      </head>
-      <body>
-          <h1>קוד לאישור כתובת המייל</h1>
-          <h3>העתק את הקוד שרשום פה למטה והדבק אותו באתר על מנת לאשר</h3>
-          <p>הקוד הוא: $pincode</p>
-      </body>
-      </html>
-  ";
+  $mailmsg = '
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+  <html>
+  <head>
+    <title>אימות איימל</title>
+  </head>
+  <body>
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td align="center" bgcolor="#f2f2f2" style="padding: 20px;">
+          <table cellpadding="0" cellspacing="0" border="0" width="600" bgcolor="#ffffff" style="border-radius: 5px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
+            <tr>
+              <td align="center" bgcolor="#007BFF" style="padding: 20px 0; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+                <h1 style="color: #ffffff; font-size: 24px;">Email Verification</h1>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 20px;">
+                <p>התבקשת לאמת את כתובת המייל שלך בעזרת הקוד הבא:</p>
+                <p><strong>קוד אימות:</strong>'.$pincode .'</p>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" bgcolor="#f2f2f2" style="padding: 10px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+                <p style="font-size: 12px; color: #666;">&copy; 2023 [Your Company Name]. All rights reserved.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+  </html>
+  
+  ';
   send_mail($usrmail,$mailtitle,$mailmsg);
+  $_SESSION["verify"] = true;
 }
 ?>

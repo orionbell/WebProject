@@ -1,4 +1,4 @@
-<!-- Need to add a writng functionality -->
+<!-- Need to add a writing functionality -->
 <?php
 include_once('includes/header.php');
 require_once "./includes/dbh.php";

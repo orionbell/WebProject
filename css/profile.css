@@ -105,6 +105,23 @@
     box-shadow: 0 0 10px #764ada ;
     cursor: pointer;
 }
+.delete_inputs{
+    width:60%;
+}
+.options_continer{
+    text-align: left;
+    padding: 1em;
+    direction: ltr;
+    text-align-last:center;
+}
+option:checked,
+option:hover {
+    background-color: #764ada;
+    color: #000;
+}
+#delete_input2{
+    margin-top: 0;
+}
 @media (max-width:1150px) {
     .profile_blog_btn{
         margin: 1em auto;
@@ -124,6 +141,9 @@
     }
     .change_paswd_btn{
         width: 30%;
+    }
+    .delete_inputs{
+        width:60%;
     }
 }
 @media (max-width:860px) {
@@ -151,5 +171,8 @@
     }
     .btn-form{
         width: 100%;
+    }
+    .delete_inputs{
+        width:60%;
     }
 }

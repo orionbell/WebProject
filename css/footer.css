@@ -9,6 +9,7 @@
     padding-right: 8em;
     justify-content: space-between;
     z-index: 999;
+    margin-top: 1em;
 }
 .link_list {
     list-style: none;

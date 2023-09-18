@@ -49,6 +49,7 @@ function login($user,$passwd){
             $_SESSION["username"] = $info["user_name"];
             $_SESSION["useremail"] = $info["user_email"];
             $_SESSION["user_courses"] = get_user_courses($info["user_name"]);
+            $_SESSION["verify"] = true;
             header("Location: ../index.php");
             exit();
         }
@@ -188,6 +189,17 @@ function delete_blog_post($id){
 function add_course_to_user($course_name){
     
 }
-
+function delete_user_from_db($usermail){
+    global $conn;
+    $sql = "DELETE FROM users WHERE user_email = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"s",$usermail);
+        mysqli_stmt_execute($stmt);
+        exit();
+    }
+}
 
 

@@ -1,14 +1,19 @@
 [
     {
         "image": "CProgrammingTutorials.jpg",
-        "link": "https://youtube.com/playlist?list=PLA1FTfKBAEX4hblYoH6mnq0zsie2w6Wif",
+        "link": "https:\/\/youtube.com\/playlist?list=PLA1FTfKBAEX4hblYoH6mnq0zsie2w6Wif",
         "name": "C Programming Tutorials",
         "video_id": "gq_ZXCuRhU4"
     },
     {
         "image": "DebuggingCPrograms.jpg",
-        "link": "https://youtube.com/playlist?list=PL9IEJIKnBJjHGWPN_S9NS_Ky1-tC8ZrUI",
+        "link": "https:\/\/youtube.com\/playlist?list=PL9IEJIKnBJjHGWPN_S9NS_Ky1-tC8ZrUI",
         "name": "Debugging C Programs",
         "video_id": "mfmXcbiRs0E"
+    },
+    {
+        "link": "https:\/\/youtube.com\/playlist?list=PLZPZq0r_RZOOzY_vR4zJM32SqsSInGMwe&si=_42rw_nKAva4KQYk",
+        "name": "C tutorial for beginners \ud83d\udd79\ufe0f",
+        "video_id": "nrbBmoINqtk"
     }
 ]

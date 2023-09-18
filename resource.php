@@ -11,7 +11,59 @@
         $cjson = file_get_contents('./resources/'.$topic.'/channels.json');
         $cjson_decoded = json_decode($cjson, true);
     }
-        
+    // Adding new resource form the admin panel
+
+    //! NEED TO FIX THE ADDING NEW RESOURCE FEATURE
+    
+    if(isset($_POST["new_video"])){
+        if ($_POST["categories"] != "select category") {
+            $not_duplicated = true;
+            $file_name = "./resources/".$_POST['categories']."/youtube.json";
+            $youtube_json = file_get_contents($file_name);
+            $youtube_data = json_decode($youtube_json, true);
+            foreach($youtube_data as $yt_data){
+                if(in_array($_POST["input2"],$yt_data)){ # Check for duplictes
+                    $not_duplicated = false;
+                }
+            }
+            if($not_duplicated){
+                array_push($youtube_data, Array('title' => $_POST["input1"], 'video_id' => $_POST["input2"]));
+            }
+            $youtube_json = json_encode($youtube_data,JSON_PRETTY_PRINT);
+            file_put_contents($file_name, $youtube_json);
+            header("Location: ./resource.php?topic=".$_POST["categories"]);
+        }
+    }
+    if(isset($_POST["new_playlist"])){
+        if ($_POST["categories"] != "select category") {
+            $file_name = "./resources/".$_POST['categories']."/playlists.json";
+            $youtube_json = file_get_contents($file_name);
+            $youtube_data = json_decode($youtube_json, true);
+            array_push($youtube_data, Array('link' => $_POST["input2"], 'name' => $_POST["input3"], 'video_id' => $_POST["input1"]));
+            $youtube_json = json_encode($youtube_data,JSON_PRETTY_PRINT);
+            file_put_contents($file_name, $youtube_json);
+            header("Location: ./resource.php?topic=".$_POST["categories"]."#playlists");
+        }
+    }
+    if(isset($_POST["new_channel"])){
+        if ($_POST["categories"] != "select category") {
+            $not_duplicated = true;
+            $file_name = "./resources/".$_POST['categories']."/channels.json";
+            $youtube_json = file_get_contents($file_name);
+            $youtube_data = json_decode($youtube_json, true);
+            foreach($youtube_data as $yt_data){
+                if(in_array($_POST["input2"],$yt_data)){ # Check for duplictes
+                    $not_duplicated = false;
+                }
+            }
+            if($not_duplicated){
+                array_push($youtube_data, Array('image' => str_replace(' ', '', $_POST["input2"].".jpg") ,'link' => $_POST["input1"], 'name' => $_POST["input2"]));
+            }
+            $youtube_json = json_encode($youtube_data,JSON_PRETTY_PRINT);
+            file_put_contents($file_name, $youtube_json);
+            header("Location: ./resource.php?topic=".$_POST["categories"]."#channels");
+        }
+    }
 ?>
 <main class="right_menu" id="top">
     <ul class="menu">

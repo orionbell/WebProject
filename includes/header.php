@@ -43,10 +43,16 @@ if (!isset($_SESSION)) {
                     <a href="blog.php" class="nav_link link4">בלוג</a>
                 </li>
                 <?php
-                    if(isset($_SESSION["username"])){
-                        echo '<li class="nav_item">
+                    if(isset($_SESSION["verify"]) || isset($_SESSION["login"])){
+                        if ($_SESSION["verify"] || $_SESSION["login"]) {
+                            echo '<li class="nav_item">
                                 <a href="profile.php" class="nav_link link5">המשתמש שלי</a>
                             </li>';
+                        }else{
+                            echo '<li class="nav_item">
+                                <a href="login.php" class="nav_link link5">התחברות</a>
+                            </li>';
+                        }
                     }else{
                         echo '<li class="nav_item">
                                 <a href="login.php" class="nav_link link5">התחברות</a>

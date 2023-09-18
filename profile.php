@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once('includes/header.php');
     if(!isset($_SESSION["username"])){
         header("Location: login.php");
@@ -53,15 +54,16 @@
                     <p class="profile-error">ניתן לשנות את הפרטים כל 30 יום</p>
             </form>
             <?php 
-                    if($username == "Admin"){
-                        echo '
+                    if($username == "Admin"):
+            ?>
                         <br>
                         <div class="profile_blog_btn" id="open_admin_panel" onclick="openAdminPanel()">open admin panel</div>
                         <div id="admin_panel">
                             <h2 class="ui_header">יצירת בלוג חדש</h2>
                             <form class="peronal_info_list" method="post" action="blog.php">
-                                <input name="title" class="peronal_info_item" placeholder="כותרת" spellcheck="false">
-                                <input name="content" class="peronal_info_item" placeholder="תוכן הבלוג" spellcheck="false">
+                                <div class="profile_blog_btn" id="blog_open_btn" onclick="editBlogs()">פתח</div>
+                                <input name="title" class="peronal_info_item" id="title_input" placeholder="כותרת" spellcheck="false">
+                                <input name="content" class="peronal_info_item" id="content_input" placeholder="תוכן הבלוג" spellcheck="false">
                                 <div class="profile_blog_btn" id="blog_btn1" onclick="showProfileInput()">הוסף תמונת פרופיל</div>
                                 <input name="profile_img" class="peronal_info_item" id="blog_input1" placeholder="שם תמונת הפרופיל" spellcheck="false">
                                 <div class="profile_blog_btn" id="blog_btn2" onclick="showImgInput()">הוסף תמונה</div>
@@ -70,18 +72,28 @@
                                 <br>
                                 <div class="profile_blog_btn" id="blog_btn3" onclick="showDeleteInput()">מחק בלוג</div>
                                 <input name="delete_blog" class="peronal_info_item" type="number" min="0" value="0" id="blog_input3" placeholder="id" spellcheck="false">
-                                <input name="new_blog_post" class="profile_blog_btn " type="submit" value="שליחה">
+                                <input name="new_blog_post" class="profile_blog_btn" id="submit_btn" type="submit" value="שליחה">
                             </form>
                             <h2 class="ui_header">הוספת מקור</h2>
-                            <form class="peronal_info_list" method="post" action="resources.php">
+                            <form class="peronal_info_list" method="post" action="resource.php">
                                 <div class="profile_blog_btn" id="res_btn1" onclick="showNewResInput(`video`)">סרטון</div>
                                 <div class="profile_blog_btn" id="res_btn2" onclick="showNewResInput(`playlist`)">פלייליסט</div>
                                 <div class="profile_blog_btn" id="res_btn3" onclick="showNewResInput(`channel`)">ערוץ</div>
-                                <input name="" class="peronal_info_item" id="res_input1" placeholder="" spellcheck="false">
-                                <input name="" class="peronal_info_item" id="res_input2" placeholder="" spellcheck="false">
-                                <input name="" class="peronal_info_item" id="res_input3" placeholder="" spellcheck="false">
-                                <input name="" class="peronal_info_item" id="res_input4" placeholder="" spellcheck="false">
-                                <input name="new_blog_post" id="res_submit" class="profile_blog_btn " type="submit" value="שליחה">
+                                <input name="input1" class="peronal_info_item" id="res_input1" placeholder="" spellcheck="false">
+                                <input name="input2" class="peronal_info_item" id="res_input2" placeholder="" spellcheck="false">
+                                <input name="input3" class="peronal_info_item" id="res_input3" placeholder="" spellcheck="false">
+                                <select name="categories"class="profile_blog_btn options_continer">
+                                        <option>select category</option>
+                                        <?php
+                                            //getting all the options from the select directory
+                                            $directory = './resources';
+                                            $categories = array_diff(scandir($directory), array('..', '.'));
+                                            foreach ($categories as $category){
+                                                echo "<option class='options' value='$category'>$category</option>";
+                                            }
+                                        ?>
+                                </select>
+                                <input name="new_resource" id="res_submit" class="profile_blog_btn " type="submit" value="שליחה">
                             </form>
                             <h2 class="ui_header">יצירה או עדכון של קורס</h2>
                             <form class="peronal_info_list" method="post" action="profile.php">
@@ -97,13 +109,12 @@
                         </div>
                         <br>
                         ';
-                    }
-            ?>
-            <form class="btn-form" action="includes/logout_inc.php">
+<?php endif ?>
+            <form class="btn-form" method="post" action="includes/logout_inc.php">
                     <input class="change_paswd_btn profile_btn" type="submit" value="התנתקות">
             </form>
-            <form class="btn-form" action="includes/logout_inc.php">
-                    <input name="delete_account"class="change_paswd_btn profile_btn" type="submit" value="מחק חשבון">
+            <form class="btn-form" method="post" action="includes/logout_inc.php">
+                <input name="delete_account"class="change_paswd_btn profile_btn" type="submit" value="מחק חשבון">
             </form>
     </main>
     
