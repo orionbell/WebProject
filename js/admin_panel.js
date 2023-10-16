@@ -190,6 +190,7 @@ const courseInput3 = document.querySelector("#course_input3");
 const courseInput4 = document.querySelector("#course_input4");
 const courseInput5 = document.querySelector("#course_input5");
 const courseInput6 = document.querySelector("#course_input6");
+const courseInput7 = document.querySelector("#course_input7");
 const courseSubmit = document.querySelector("#course_submit");
 courseInput1.style.display = "none";
 courseInput2.style.display = "none";
@@ -197,6 +198,7 @@ courseInput3.style.display = "none";
 courseInput4.style.display = "none";
 courseInput5.style.display = "none";
 courseInput6.style.display = "none";
+courseInput7.style.display = "none";
 courseSubmit.style.display = "none";
 let isVisible = false;
 function displayCoursePanel() {
@@ -207,6 +209,7 @@ function displayCoursePanel() {
             courseInput4.style.display = "block";
             courseInput5.style.display = "block";
             courseInput6.style.display = "block";
+            courseInput7.style.display = "block";
             courseSubmit.style.display = "block";
             courseBtn.innerHTML = "סגור";
             isVisible = true;
@@ -217,6 +220,7 @@ function displayCoursePanel() {
             courseInput4.style.display = "none";
             courseInput5.style.display = "none";
             courseInput6.style.display = "none";
+            courseInput7.style.display = "none";
             courseSubmit.style.display = "none";
             courseBtn.innerHTML = "פתח";
             isVisible = false;

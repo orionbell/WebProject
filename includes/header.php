@@ -11,9 +11,6 @@ if (!isset($_SESSION)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./icon.ico">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/nav.css">
@@ -45,9 +42,15 @@ if (!isset($_SESSION)) {
                 <?php
                     if(isset($_SESSION["verify"]) || isset($_SESSION["login"])){
                         if ($_SESSION["verify"] || $_SESSION["login"]) {
-                            echo '<li class="nav_item">
-                                <a href="profile.php" class="nav_link link5">המשתמש שלי</a>
-                            </li>';
+                            if (isset($_SESSION['username'])) {
+                                echo '<li class="nav_item">
+                                         <a href="profile.php" class="nav_link link5">המשתמש שלי</a>
+                                      </li>';
+                            }else{
+                                echo '<li class="nav_item">
+                                        <a href="login.php" class="nav_link link5">התחברות</a>
+                                      </li>';
+                            }
                         }else{
                             echo '<li class="nav_item">
                                 <a href="login.php" class="nav_link link5">התחברות</a>

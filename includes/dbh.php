@@ -25,7 +25,7 @@ function add_user($username,$email,$passwd){
         $_SESSION["useremail"] = $email;
         $_SESSION["username"] = $username;
         $_SESSION["user_courses"] = $user_courses;
-        header("Location: ../index.php");
+        header("Location: index.php");
         exit();
     }
 }
@@ -198,8 +198,67 @@ function delete_user_from_db($usermail){
     }else{
         mysqli_stmt_bind_param($stmt,"s",$usermail);
         mysqli_stmt_execute($stmt);
+        session_unset();
+        session_destroy();
+        header("Location: ./index.php");
         exit();
     }
 }
 
+function change_old_passwd($new_passwd,$user_mail)
+{
+    global $conn;
+    $sql = "UPDATE users SET user_password = ?  WHERE user_email = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }
+    else{
+        mysqli_stmt_bind_param($stmt,"ss",$new_passwd,$user_mail);
+        mysqli_stmt_execute($stmt);
+        if(isset($_SESSION["useremail"])) unset($_SESSION["useremail"]);
+        header("Location: ../login.php?email=".$user_mail);
+        exit();
+    }
+}
+// function edit_course($name,$price,$topic,$discount,$image,$description)
+// {
+    
+// }
 
+// function create_course($name,$price,$topic,$discount,$image,$description)
+// {
+//     global $conn;
+//     $sql = "INSERT INTO courses (course_name,course_price,course_topic,course_discount,course_image,course_description,course_subjects) VALUES (?,?,?,?,?);";
+//     $stmt = mysqli_stmt_init($conn);
+//     if (!mysqli_stmt_prepare($stmt,$sql)) {
+//         echo "Something went wrong :(";
+//     }else{
+//         mysqli_stmt_bind_param($stmt,"sssss",$title,$content,$img,$profile,$published);
+//         mysqli_stmt_execute($stmt);
+//         header("Location: ./blog.php");
+//         exit();
+// }
+// function course_config($name,$price,$topic,$discount,$image,$description)
+// {
+//     global $conn;
+//     $course_exists = false;
+//     $sql = "SELECT * FROM courses WHERE course_name = ?";
+//     $stmt = mysqli_stmt_init($conn);
+//     if (!mysqli_stmt_prepare($stmt,$sql)) {
+//         echo "Something went wrong :(";
+//     }else{
+//         mysqli_stmt_bind_param($stmt,"s",$name);
+//         mysqli_stmt_execute($stmt);
+//         $res = mysqli_stmt_get_result($stmt);
+//         if(mysqli_num_rows($res) > 0){
+//             $course_exists = true;
+//         }
+//     }
+
+//     if($course_exists){
+//         edit_course($name,$price,$topic,$discount,$image,$description);
+//     }else{
+//         create_course($name,$price,$topic,$discount,$image,$description);
+//     }
+// }

@@ -11,7 +11,7 @@
     font-size: 2rem;
     padding: 1em 2em;
     color: white;
-    text-shadow: 0 0 10px white ;
+    --text-shadow: 0 0 10px white ;
 }
 .peronal_info_list{
     display: flex;
@@ -39,7 +39,8 @@
     text-shadow: 0 0 10px white ;
 }
 .btn-form{
-    width: 30%;
+    width: 40%;
+    text-align: center;
 }
 .change_paswd_btn{
     margin: 1em;
@@ -122,6 +123,9 @@ option:hover {
 #delete_input2{
     margin-top: 0;
 }
+#delete_label{
+    font-size: 0.9rem;
+}
 @media (max-width:1150px) {
     .profile_blog_btn{
         margin: 1em auto;
@@ -140,10 +144,15 @@ option:hover {
         width: 60%;
     }
     .change_paswd_btn{
-        width: 30%;
+        width: 50%;
+        margin: 1em auto;
     }
     .delete_inputs{
         width:60%;
+    }
+    .btn-form{
+        width: 100%;
+        text-align: center;
     }
 }
 @media (max-width:860px) {
@@ -171,6 +180,7 @@ option:hover {
     }
     .btn-form{
         width: 100%;
+        
     }
     .delete_inputs{
         width:60%;

@@ -60,7 +60,9 @@
     width: 100%;
     font-size: 1.1rem;
     direction: rtl;
-    background-size: cover;
+    background-position: 350px 70%;
+    background-size: 35%;
+    background-repeat: no-repeat;
 }
 .desc_text{
     text-align: right;
@@ -72,7 +74,6 @@
 .buy_container{
     position: relative;
     width: 40%;
-    border: 1px solid rgba(43, 43, 43, 0.568);
     padding: 0 1em;
     padding-right: 4em;
     z-index: 10;
@@ -125,6 +126,9 @@
         font-size: 1em;
         padding: 1em;
         border-radius: 0.5em;
+        background-position: 220px;
+        background-size: 80%;
+        background-repeat: no-repeat;
     }
     .buy_container{
         width: 80%;
@@ -181,6 +185,11 @@
         width: 98%;
         margin: 0 auto;
         margin-bottom: 4em;
+    }
+    .desc{
+        background-position: 220px;
+        background-size: 80%;
+        background-repeat: no-repeat;
     }
 }
 @media (min-width:2000px){

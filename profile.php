@@ -1,7 +1,12 @@
 <?php
     session_start();
     include_once('includes/header.php');
-    if(!isset($_SESSION["username"])){
+    if(!isset($_SESSION["useremail"])){
+        header("Location: login.php");
+        exit();
+    }
+    if (isset($_SESSION["useremail"]) && !isset($_SESSION["username"])) {
+        unset($_SESSION["useremail"]);
         header("Location: login.php");
         exit();
     }
@@ -104,6 +109,7 @@
                                 <input name="" class="peronal_info_item" id="course_input4" placeholder="course discount" spellcheck="false">
                                 <input name="" class="peronal_info_item" id="course_input5" placeholder="course image" spellcheck="false">
                                 <input name="" class="peronal_info_item" id="course_input6" placeholder="course description" spellcheck="false">
+                                <input name="" class="peronal_info_item" id="course_input7" placeholder="course subjects" spellcheck="false">
                                 <input name="new_blog_post" id="course_submit" class="profile_blog_btn " type="submit" value="שליחה">
                             </form>
                         </div>
@@ -114,7 +120,21 @@
                     <input class="change_paswd_btn profile_btn" type="submit" value="התנתקות">
             </form>
             <form class="btn-form" method="post" action="includes/logout_inc.php">
-                <input name="delete_account"class="change_paswd_btn profile_btn" type="submit" value="מחק חשבון">
+            <div class="change_paswd_btn profile_btn" id="open_delete_btn" style="margin:1em auto;" onclick="showDeleteAccount()">מחק חשבון לצמיתות</div>
+            <label class="profile-error" id='delete_label'><?php 
+                if (isset($_GET['err'])) {
+                    if ($_GET['err'] == 'str_not_match') {
+                        echo 'הטקסט לא תואם, על מנת לאשר רשום "אני רוצה למחוק את המשתמש לצמיתות"';
+                    }else{
+                        echo 'על מנת לאשר רשום "אני רוצה למחוק את המשתמש לצמיתות"';
+                    }
+                }else{
+                    echo 'על מנת לאשר רשום "אני רוצה למחוק את המשתמש לצמיתות"';
+                }
+            ?></label>
+                <input name="delete_confirm" class="peronal_info_item" id="conf_del_input" style="width:60%" placeholder='רשום כאן על מנת לאשר' spellcheck="false">
+                <input name="delete_account" class="change_paswd_btn profile_btn" id="conf_del_submit" type="submit" value="מחק חשבון">
+                <?php $_SESSION['delete_account'] = true;?>
             </form>
     </main>
     

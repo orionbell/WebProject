@@ -73,7 +73,7 @@
             $subjects_list = $subjects_list . "<li class='subject_list_item'>$subject</li>\n";
         }
         echo "
-        <div class='desc' style='background-image: url(imgs/coursesinfo_pic/$subcourse_nospaces.jpg);'>
+        <div class='desc' style='background-image: url(imgs/$course_img);'>
             <div class='buy_container'>
                 <h2 class='subheader' style='margin:0 auto;'>$subcourse</h2>
                 <p class='desc_text'>$descript</p>

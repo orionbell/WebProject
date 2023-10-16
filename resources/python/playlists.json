@@ -1,36 +1,30 @@
 [
     {
-        "image": "MatplotlibTutorials.jpg",
         "link": "https://youtube.com/playlist?list=PL-osiE80TeTvipOqomVEeZ1HRrcEvtZB_",
         "name": "Matplotlib Tutorials",
         "video_id": "UO98lJQ3QGI"
     },
     {
-        "image": "PythonNetworkProgramming-TCP/IPSocketProgramming.jpg",
         "link": "https://youtube.com/playlist?list=PLhTjy8cBISErYuLZUvVOYsR1giva2payF",
         "name": "Python Network Programming - TCP/IP Socket Programming",
         "video_id": "6jteAOmdsYg"
     },
     {
-        "image": "PythonGUI'sWithTKinter.jpg",
         "link": "https://youtube.com/playlist?list=PLCC34OHNcOtoC6GglhF3ncJ5rLwQrLGnV",
         "name": "Python GUI's With TKinter",
         "video_id": "yQSEXcf6s2I"
     },
     {
-        "image": "PythonTutorials.jpg",
         "link": "https://youtube.com/playlist?list=PLWKjhJtqVAbnqBxcdjVGgT3uVR10bzTEB",
         "name": "Python Tutorials",
         "video_id": "eWRfhZUzrAc"
     },
     {
-        "image": "PandasTutorials.jpg",
         "link": "https://youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS",
         "name": "Pandas Tutorials",
         "video_id": "ZyhVh-qRZPA"
     },
     {
-        "image": "PythonTutorials.jpg",
         "link": "https://youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU",
         "name": "Python Tutorials",
         "video_id": "YYXdXT2l-Gg"
