@@ -84,6 +84,22 @@
                 <form action='' method='post' class='buy_form'>
                     <input class='buy_btn' type='submit' value='קניית קורס $total_price ₪'>
                 </form>
+                
+
+
+
+
+                <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>
+                    <input type='hidden' name='cmd' value='_s-xclick' />
+                    <input type='hidden' name='hosted_button_id' value='VQ5ZPDJEPY5YL' />
+                    <input type='hidden' name='currency_code' value='ILS' />
+                    <input type='image' src='https://www.paypalobjects.com/he_IL/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' title='PayPal היא הדרך הקלה והבטוחה יותר לשלם באינטרנט!' alt='קנה עכשיו' />
+                </form>
+
+
+
+
+
             </div>
         </div>
         <br>

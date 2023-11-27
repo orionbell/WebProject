@@ -16,7 +16,11 @@
                 unset($_SESSION["userpassword"]);
                 exit();
             }else if ($_GET['type'] == 'new_email') {
-                echo "";
+                if (isset($_SESSION['is_not_same_name'])){
+                    change_user_info($_SESSION['new_username'],$_SESSION['new_useremail'],$_SESSION['is_not_same_name'],$_SESSION['is_not_same_email']);
+                }else{
+                    header("Location: ./index.php");
+                }
             }else if ($_GET['type'] == 'delete_account') {
                 delete_user_from_db($_SESSION["useremail"]);
             }else if ($_GET['type'] == 'reset_password') {
@@ -26,27 +30,27 @@
             }
         }else if(empty($_POST["pin"])){
             $_SESSION['ERROR'] = 1;
-            header("Location: verify.php?error=EmptyInputs");
+            header("Location: verify.php?type=".$_GET['type']."&error=EmptyInputs");
         }else{
             $_SESSION['ERROR'] = 1;
-            header("Location: verify.php?error=PinNotMatch");
+            header("Location: verify.php?type=".$_GET['type']."&error=PinNotMatch");
         }
     }
     if (!isset($_SESSION['ERROR'])) {
         $pincode = rand(100000,999999);
         $_SESSION["pincode"] = $pincode;
-        $usrmail = $_SESSION['useremail'];
+        $usrmail = $_SESSION['new_useremail'];
         include_once('includes/mail.php');
         verify_email($usrmail,$_SESSION["pincode"]);
     }
 ?>
 <form action='<?php echo "verify.php?type=".$_GET['type'];?>' method="post" class="signlogin_form">
     <h2 class="signin_title">אישור כתובת האימייל</h2>
-    <h6 class="signin_title" style="font-size:1rem;"><?php echo $usrmail?> הכנס את הקוד שנשלח לכתובת האימייל <br> על מנת לאשר את הכתובת</h6>
+    <h6 class="signin_title" style="font-size:1rem;"><?php echo strip_tags($_SESSION['new_useremail'])?> הכנס את הקוד שנשלח לכתובת האימייל <br> על מנת לאשר את הכתובת</h6>
     <input type="text" name="pin" class="signlogin_inputs" placeholder="קוד" pattern="[0-9][0-9][0-9][0-9][0-9][0-9]" spellcheck="false" maxlength="6">
     <p class="error">
         <?php
-            if (isset($_GET["error"])) {
+            if (isset($_GET["error"]) && isset($_SESSION['ERROR'])) {
                 if($_GET["error"] == "EmptyInputs"){
                     echo "נא להכניס את הקוד";
                 }else if($_GET["error"] == "PinNotMatch" ){

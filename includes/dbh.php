@@ -55,7 +55,9 @@ function login($user,$passwd){
         }
     }
 }
+
 function change_user_info($new_username,$new_email,$is_not_same_name,$is_not_same_email){
+    require "errors.php";
     global $conn;
     $sql = "SELECT last_info_change FROM users WHERE user_name = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -73,23 +75,23 @@ function change_user_info($new_username,$new_email,$is_not_same_name,$is_not_sam
         }
             if (strtotime($info["last_info_change"]. ' + 30 days') < strtotime(date("Y-m-d"))) {
                 if(empty_login_inputs($new_username,$new_email) !== false){
-                    header("Location: ../profile.php?error=EmptyInputs");
+                    header("Location: ./profile.php?error=EmptyInputs");
                     exit();
                 }
                 if(invalid_username($new_username) !== false){
-                    header("Location: ../profile.php?error=UsernameInvalid");
+                    header("Location: ./profile.php?error=UsernameInvalid");
                     exit();
                 }
                 if(invalid_email($new_email) !== false){
-                    header("Location: ../profile.php?error=EmailInvalid");
+                    header("Location: ./profile.php?error=EmailInvalid");
                     exit();
                 }
                 if(username_not_unique($new_username) !== false && $is_not_same_name !== false){
-                    header("Location: ../profile.php?error=UsernameNotUniquet");
+                    header("Location: ./profile.php?error=UsernameNotUniquet");
                     exit();
                 }
                 if(usermail_not_unique($new_email) !== false && $is_not_same_email !== false){
-                    header("Location: ../profile.php?error=UsermailNotUnique");
+                    header("Location: ./profile.php?error=UsermailNotUnique");
                     exit();
                 }
                 $sql2 = "UPDATE users SET user_name = ?, user_email = ? ,last_info_change = ? WHERE user_name = ?;";
@@ -103,12 +105,12 @@ function change_user_info($new_username,$new_email,$is_not_same_name,$is_not_sam
                     mysqli_stmt_execute($stmt2);
                     $_SESSION["username"] = $new_username;
                     $_SESSION["useremail"] = $new_email;
-                    header("Location: ../profile.php");
+                    header("Location: ./profile.php");
                 }   
             }
             else {
                 $date = date("d/m/y",strtotime($info["last_info_change"]. ' + 30 days'));
-                header("Location: ../profile.php?error=ChangeTimeNotExpired&nextDateToChange=".$date);
+                header("Location: ./profile.php?error=ChangeTimeNotExpired&nextDateToChange=".$date);
             }
         }
 }

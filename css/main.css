@@ -7,7 +7,7 @@
     color: white;
     margin-bottom: 4em;
 }
-@media (max-width:1500px) {
+@media (max-width:1600px) {
     .container{
         grid-template-columns:1fr 1fr 1fr;
     }
@@ -36,7 +36,7 @@
     position: relative;
     padding: 2em 5em;
     text-align: center;
-    background:linear-gradient(0deg,#000,#262626);
+    background:linear-gradient(0deg,#000,#262626,#292929);
     border: #000 solid 0.1em;
     border-radius: 1em;
     transition: transform 50ms ease-in-out;

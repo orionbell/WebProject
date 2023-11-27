@@ -29,9 +29,9 @@
         <h2 class="ui_header">פרטים אישיים</h2>
             <form class="peronal_info_list" method="post" action="includes/change_info_inc.php">
                 <label class="name_ui" for="usrname">שם</label>
-                <input name="username" id="usrname" class="peronal_info_item" value="<?php echo $username; ?>" spellcheck="false">
+                <input name="username" id="usrname" class="peronal_info_item" value="<?php echo strip_tags($username); ?>" spellcheck="false">
                 <label class="name_ui" for="usrmail">אימייל</label>
-                <input name="usermail" id="usrmail" class="peronal_info_item" value="<?php echo $useremail; ?>" spellcheck="false">
+                <input name="usermail" id="usrmail" class="peronal_info_item" value="<?php echo strip_tags($useremail); ?>" spellcheck="false">
                 <label class="profile-error">
                     <?php
                         if (isset($_GET["error"])) {

@@ -6,5 +6,6 @@
     ליצור את האדמין פאנל
 ליצור אפשרות לחסום משתמש מהאתר על עבירה על החוקים
 ליצור מצב בהיר
-
-create a verifcation when switching email !!
+strip_tags()
+create a timer for the mail sender
+fix verification error crash the page ! (check the date of last change without sending email)
