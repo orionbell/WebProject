@@ -1,7 +1,4 @@
 ===צריך mail===
-*** today ***
-    לסיים את שינוי הסיסמה
-    לסיים את השיחזור סיסמה
     לסיים את הוספת הקורסים למשתמשים
     ליצור את האדמין פאנל
 ליצור אפשרות לחסום משתמש מהאתר על עבירה על החוקים
@@ -9,3 +6,7 @@
 strip_tags()
 create a timer for the mail sender
 fix verification error crash the page ! (check the date of last change without sending email)
+
+remove uneeded css imports
+create the abilty to EDIT a course !!
+logging functionality
