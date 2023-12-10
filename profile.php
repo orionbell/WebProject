@@ -101,16 +101,26 @@
                                 <input name="new_resource" id="res_submit" class="profile_blog_btn " type="submit" value="שליחה">
                             </form>
                             <h2 class="ui_header">יצירה או עדכון של קורס</h2>
-                            <form class="peronal_info_list" method="post" action="profile.php">
+                            <form class="peronal_info_list" method="post" action="./includes/new_course.php">
                             <div class="profile_blog_btn" id="course_btn1" onclick="displayCoursePanel()">פתח</div>
-                                <input name="" class="peronal_info_item" id="course_input1" placeholder="course name" spellcheck="false">
-                                <input name="" class="peronal_info_item" id="course_input2" placeholder="course price" spellcheck="false">
-                                <input name="" class="peronal_info_item" id="course_input3" placeholder="course topic" spellcheck="false">
-                                <input name="" class="peronal_info_item" id="course_input4" placeholder="course discount" spellcheck="false">
-                                <input name="" class="peronal_info_item" id="course_input5" placeholder="course image" spellcheck="false">
-                                <input name="" class="peronal_info_item" id="course_input6" placeholder="course description" spellcheck="false">
-                                <input name="" class="peronal_info_item" id="course_input7" placeholder="course subjects" spellcheck="false">
-                                <input name="new_blog_post" id="course_submit" class="profile_blog_btn " type="submit" value="שליחה">
+                                <select name="course_topic"class="profile_blog_btn options_continer"  id="course_input3">
+                                        <option>topic</option>
+                                        <?php
+                                            //getting all the options from the select directory
+                                            $directory = './resources';
+                                            $categories = array_diff(scandir($directory), array('..', '.'));
+                                            foreach ($categories as $category){
+                                                echo "<option class='options' value='$category'>$category</option>";
+                                            }
+                                        ?>
+                                </select>
+                                <input name="course_name" class="peronal_info_item" id="course_input1" placeholder="course name" spellcheck="false">
+                                <input name="course_price" class="peronal_info_item" id="course_input2" placeholder="course price" spellcheck="false">
+                                <input name="course_discount" class="peronal_info_item" id="course_input4" placeholder="course discount" spellcheck="false">
+                                <input name="course_image" class="peronal_info_item" id="course_input5" placeholder="course image" spellcheck="false">
+                                <textarea name="course_description" class="peronal_info_item" id="course_input6" placeholder="course description" spellcheck="false"></textarea>
+                                <textarea name="course_subjects" class="peronal_info_item" id="course_input7" placeholder="course subjects" spellcheck="false">צריך להיות בצורה של רשימה כל נושא בשורה חדשה</textarea>
+                                <input name="new_course" id="course_submit" class="profile_blog_btn " type="submit" value="שליחה">
                             </form>
                         </div>
                         <br>

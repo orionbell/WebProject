@@ -126,6 +126,15 @@ option:hover {
 #delete_label{
     font-size: 0.9rem;
 }
+
+#course_input6{
+    width: 40%;
+    height: 5em;
+}
+#course_input7{
+    width: 40%;
+    height: 5em;
+}
 @media (max-width:1150px) {
     .profile_blog_btn{
         margin: 1em auto;
@@ -153,6 +162,14 @@ option:hover {
     .btn-form{
         width: 100%;
         text-align: center;
+    }
+    #course_input6{
+        height: 6em;
+        width: 60%;
+    }
+    #course_input7{
+        height: 6em;
+        width: 60%;
     }
 }
 @media (max-width:860px) {
@@ -184,5 +201,13 @@ option:hover {
     }
     .delete_inputs{
         width:60%;
+    }
+    #course_input6{
+        width: 60%;
+        height: 6em;
+    }
+    #course_input7{
+        width: 60%;
+        height: 6em;
     }
 }

@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 $db_server_name = 'localhost';
 $db_user_name = 'root';
-$db_user_passwd = 'MysqlServer#yishai';
+$db_user_passwd = '';
 $db_name = 'CS israel';
 // Creating connection to the database
 $conn = mysqli_connect($db_server_name,$db_user_name,$db_user_passwd,$db_name);
@@ -223,44 +223,80 @@ function change_old_passwd($new_passwd,$user_mail)
         exit();
     }
 }
-// function edit_course($name,$price,$topic,$discount,$image,$description)
-// {
-    
-// }
+function edit_course($name,$price,$topic,$discount,$image,$description,$subjects)
+{
+    global $conn;
+    if(!($price == '')){
 
-// function create_course($name,$price,$topic,$discount,$image,$description)
-// {
-//     global $conn;
-//     $sql = "INSERT INTO courses (course_name,course_price,course_topic,course_discount,course_image,course_description,course_subjects) VALUES (?,?,?,?,?);";
-//     $stmt = mysqli_stmt_init($conn);
-//     if (!mysqli_stmt_prepare($stmt,$sql)) {
-//         echo "Something went wrong :(";
-//     }else{
-//         mysqli_stmt_bind_param($stmt,"sssss",$title,$content,$img,$profile,$published);
-//         mysqli_stmt_execute($stmt);
-//         header("Location: ./blog.php");
-//         exit();
-// }
-// function course_config($name,$price,$topic,$discount,$image,$description)
-// {
-//     global $conn;
-//     $course_exists = false;
-//     $sql = "SELECT * FROM courses WHERE course_name = ?";
-//     $stmt = mysqli_stmt_init($conn);
-//     if (!mysqli_stmt_prepare($stmt,$sql)) {
-//         echo "Something went wrong :(";
-//     }else{
-//         mysqli_stmt_bind_param($stmt,"s",$name);
-//         mysqli_stmt_execute($stmt);
-//         $res = mysqli_stmt_get_result($stmt);
-//         if(mysqli_num_rows($res) > 0){
-//             $course_exists = true;
-//         }
-//     }
+    }
+    else{
+        $sql2 = "UPDATE courses SET course_name = ?, course_price = ?, course_topic = ?, course_discount = ?, course_image = ?, course_description = ?, course_subjects = ? ";
+    }
+    $sql2 = $sql2 . 'WHERE course_name = ?;';
+    $stmt2 = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt2,$sql2)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"sssssss",$price,$topic,$discount,$image,$description,$subjects,$name);
+        mysqli_stmt_execute($stmt);
+        header("Location: ../index.php");
+        exit();
+    }
+}
 
-//     if($course_exists){
-//         edit_course($name,$price,$topic,$discount,$image,$description);
-//     }else{
-//         create_course($name,$price,$topic,$discount,$image,$description);
-//     }
-// }
+function get_all_topic_courses($topic){
+    global $conn;
+    $sql = "SELECT * FROM courses WHERE course_topic = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"s",$topic);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $rows = [];
+        while($row = mysqli_fetch_assoc($result)){
+            array_push($rows,$row);
+        }
+        return $rows;
+    }
+}
+function create_course($name,$price,$topic,$discount,$image,$description,$subjects)
+{
+    global $conn;
+    $sql = "INSERT INTO courses (course_name,course_price,course_topic,course_discount,course_image,course_description,course_subjects) VALUES (?,?,?,?,?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"sssssss",$name,$price,$topic,$discount,$image,$description,$subjects);
+        mysqli_stmt_execute($stmt);
+        header("Location: ../index.php");
+        exit();
+    }
+}
+function course_config($name,$price,$topic,$discount,$image,$description,$subjects)
+{
+    global $conn;
+    $course_exists = false;
+    $sql = "SELECT * FROM courses WHERE course_name = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"s",$name);
+        mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
+        if(mysqli_num_rows($res) > 0){
+            $course_exists = true;
+        }
+    }
+
+    if($course_exists){
+        edit_course($name,$price,$topic,$discount,$image,$description,$subjects);
+    }else{
+        create_course($name,$price,$topic,$discount,$image,$description,$subjects);
+    }
+    $course_info = get_course_info($course_name);
+    return $course_info;
+}
