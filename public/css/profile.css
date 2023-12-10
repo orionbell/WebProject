@@ -1,0 +1,213 @@
+.userui_contianer{
+    width: 80%;
+    margin: 4em auto;
+    direction: rtl;
+    padding: 6em 4em;
+    background: rgba(0,0,0,0.25);
+    border-radius: 15px; 
+    box-shadow: 0 2px 2px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 1px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+}
+.ui_header{
+    font-size: 2rem;
+    padding: 1em 2em;
+    color: white;
+    --text-shadow: 0 0 10px white ;
+}
+.peronal_info_list{
+    display: flex;
+    flex-direction: column;
+    padding: 2em 6em;
+    margin: 1em 0;
+    background-color: #262626;
+    border-radius: 10px;
+}
+.my_courses_container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 6em;
+    margin: 1em 0;
+    background-color: #262626;
+    border-radius: 10px;
+}
+.my_courses_container .empty_courses{
+    margin: 8em 0 ;
+}
+.my_courses_container .empty_courses a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 0 0 10px white ;
+}
+.btn-form{
+    width: 40%;
+    text-align: center;
+}
+.change_paswd_btn{
+    margin: 1em;
+    width: 10%;
+    font-size: 1.2rem;
+    padding: 0.5em;
+    background-color: #000;
+    overflow: hidden;
+    border: none;
+    color: #764ada;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.change_paswd_btn:hover{
+    box-shadow: 0 0 20px #764ada ;
+}
+.profile_btn{
+    width: 40%;
+}
+.panel-btn-form{
+    width: 80%;
+    margin: 0 auto;
+}
+.peronal_info_item{
+    margin: 2em 0;
+    width: 40%;
+    padding: 0.5em;
+    background-color: #000;
+    color: #764ada;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 5px;
+    border-bottom: transparent solid .2em;
+}
+.peronal_info_item:focus{
+    border-bottom: #764ada solid .2em;
+    text-shadow: 0 0 10px #764ada ;
+}
+.name_ui{
+    margin: 1em 0;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: white;
+    text-shadow: 0 0 10px white ;
+}
+.profile-error{
+    font-size: 1rem;
+    color: red;
+    text-shadow: 0 0 10px red ;
+}
+.profile_blog_btn{
+    text-align: center;
+    width: 15%;
+    padding: 0.8em;
+    border: none;
+    margin-top: 1em;
+    background-color: #000;
+    color: #764ada;
+    font-size: 1rem;
+    border-radius: 0.4em;
+}
+.profile_blog_btn:hover{
+    box-shadow: 0 0 10px #764ada ;
+    cursor: pointer;
+}
+.delete_inputs{
+    width:60%;
+}
+.options_continer{
+    text-align: left;
+    padding: 1em;
+    direction: ltr;
+    text-align-last:center;
+}
+option:checked,
+option:hover {
+    background-color: #764ada;
+    color: #000;
+}
+#delete_input2{
+    margin-top: 0;
+}
+#delete_label{
+    font-size: 0.9rem;
+}
+
+#course_input8{
+    width: 40%;
+    height: 5em;
+}
+#course_input7{
+    width: 40%;
+    height: 5em;
+}
+@media (max-width:1150px) {
+    .profile_blog_btn{
+        margin: 1em auto;
+        width: 30%;
+    }
+    .userui_contianer{
+        text-align: center;
+        padding: 1em;
+    }
+    .peronal_info_list{
+        padding: 1em;
+    }
+    .peronal_info_item{
+        margin: 2em auto;
+        font-size: 0.9rem;
+        width: 60%;
+    }
+    .change_paswd_btn{
+        width: 50%;
+        margin: 1em auto;
+    }
+    .delete_inputs{
+        width:60%;
+    }
+    .btn-form{
+        width: 100%;
+        text-align: center;
+    }
+    #course_input8{
+        height: 6em;
+        width: 60%;
+    }
+    #course_input7{
+        height: 6em;
+        width: 60%;
+    }
+}
+@media (max-width:860px) {
+    .profile_blog_btn{
+        margin: 1em auto;
+        width: 60%;
+    }
+    .my_courses_container{
+        font-size: 0.5rem;
+    }
+    .userui_contianer{
+        text-align: center;
+        padding: 1em;
+    }
+    .peronal_info_list{
+        padding: 1em;
+    }
+    .peronal_info_item{
+        margin: 2em auto;
+        font-size: 0.9rem;
+        width: 80%;
+    }
+    .change_paswd_btn{
+        width: 40%;
+    }
+    .btn-form{
+        width: 100%;
+        
+    }
+    .delete_inputs{
+        width:60%;
+    }
+    #course_input8{
+        width: 60%;
+        height: 6em;
+    }
+    #course_input7{
+        width: 60%;
+        height: 6em;
+    }
+}
