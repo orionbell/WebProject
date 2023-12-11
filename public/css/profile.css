@@ -127,11 +127,7 @@ option:hover {
     font-size: 0.9rem;
 }
 
-<<<<<<< HEAD:public/css/profile.css
-#course_input8{
-=======
 #course_input6{
->>>>>>> e67bbfd19c5a6e26c7ea12963d45fe972b547895:css/profile.css
     width: 40%;
     height: 5em;
 }
@@ -142,7 +138,7 @@ option:hover {
 @media (max-width:1150px) {
     .profile_blog_btn{
         margin: 1em auto;
-        width: 30%;
+        width: 60%;
     }
     .userui_contianer{
         text-align: center;
@@ -167,11 +163,7 @@ option:hover {
         width: 100%;
         text-align: center;
     }
-<<<<<<< HEAD:public/css/profile.css
-    #course_input8{
-=======
     #course_input6{
->>>>>>> e67bbfd19c5a6e26c7ea12963d45fe972b547895:css/profile.css
         height: 6em;
         width: 60%;
     }
@@ -210,11 +202,7 @@ option:hover {
     .delete_inputs{
         width:60%;
     }
-<<<<<<< HEAD:public/css/profile.css
-    #course_input8{
-=======
     #course_input6{
->>>>>>> e67bbfd19c5a6e26c7ea12963d45fe972b547895:css/profile.css
         width: 60%;
         height: 6em;
     }

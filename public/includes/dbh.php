@@ -55,8 +55,7 @@ function login($user,$passwd){
         }
     }
 }
-function check_date()
-{
+function check_date(){
     global $conn;
     $sql = "SELECT last_info_change FROM users WHERE user_name = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -71,6 +70,11 @@ function check_date()
             include "logout_inc.php";
             header("Location: ../index.php");
             exit();
+        }
+        if (isset($_SESSION["last_info_change"])){
+            $last_info_change = $_SESSION["last_info_change"];
+        } else{
+
         }
         if (strtotime($info["last_info_change"]. ' + 30 days') < strtotime(date("Y-m-d"))) 
         {   
@@ -103,7 +107,7 @@ function change_user_info($new_username,$new_email,$is_same_name,$is_same_email)
         exit();
     }
     if(username_not_unique($new_username) !== false && $is_same_name == false){
-        header("Location: ./profile.php?error=UsernameNotUniquet");
+        header("Location: ./profile.php?error=UsernameNotUnique");
         exit();
     }
     if(usermail_not_unique($new_email) !== false && $is_same_email == false){

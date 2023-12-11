@@ -16,10 +16,10 @@ function openAdminPanel(){
     
 }
 /***************************BLOG***************************** */
-const btn1 =document.querySelector("#blog_btn1");
+const btn1 = document.querySelector("#blog_btn1");
 const btn2 =document.querySelector("#blog_btn2");
-const btn3 =document.querySelector("#blog_btn3");
-const openBLogBtn =document.querySelector("#blog_open_btn");
+const btn3 = document.querySelector("#blog_btn3");
+const openBLogBtn = document.querySelector("#blog_open_btn");
 const submitBtn = document.querySelector("#submit_btn");
 const titleInput = document.querySelector("#title_input");
 const contentInput = document.querySelector("#content_input");
@@ -40,12 +40,16 @@ let isBlogOpened = false;
 let isInput1opend = false;
 let isInput2opend = false;
 let isInput3opend = false;
+
 function editBlogs(){
     if(isBlogOpened){
         openBLogBtn.innerHTML = "פתח";
         btn1.style.display = "none";
         btn2.style.display = "none";
         btn3.style.display = "none";
+        input1.style.display = "none";
+        input2.style.display = "none";
+        input3.style.display = "none";
         titleInput.style.display = "none";
         contentInput.style.display = "none";
         submitBtn.style.display = "none";
@@ -58,13 +62,10 @@ function editBlogs(){
         titleInput.style.display = "block";
         contentInput.style.display = "block";
         submitBtn.style.display = "block";
-        btn1.innerHTML = "סגור";
-        input1.style.display = "block";
         isBlogOpened = true;
     }
 }
-function showProfileInput(){
-    console.log(isInput1opend)
+function showProfileInput() {
     if(isInput1opend){
         btn1.innerHTML = "הוסף תמונת פרופיל";
         input1.style.display = "none";
@@ -74,7 +75,6 @@ function showProfileInput(){
         input1.style.display = "block";
         isInput1opend = true;
     }
-    
 }
 function showImgInput() {
     if(isInput2opend){
@@ -191,7 +191,6 @@ const courseInput4 = document.querySelector("#course_input4");
 const courseInput5 = document.querySelector("#course_input5");
 const courseInput6 = document.querySelector("#course_input6");
 const courseInput7 = document.querySelector("#course_input7");
-const courseInput8 = document.querySelector("#course_input8");
 const courseSubmit = document.querySelector("#course_submit");
 courseInput1.style.display = "none";
 courseInput2.style.display = "none";
@@ -200,7 +199,6 @@ courseInput4.style.display = "none";
 courseInput5.style.display = "none";
 courseInput6.style.display = "none";
 courseInput7.style.display = "none";
-courseInput8.style.display = "none";
 courseSubmit.style.display = "none";
 let isVisible = false;
 function displayCoursePanel() {
@@ -212,7 +210,6 @@ function displayCoursePanel() {
             courseInput5.style.display = "block";
             courseInput6.style.display = "block";
             courseInput7.style.display = "block";
-            courseInput8.style.display = "block";
             courseSubmit.style.display = "block";
             courseBtn.innerHTML = "סגור";
             isVisible = true;
@@ -224,7 +221,6 @@ function displayCoursePanel() {
             courseInput5.style.display = "none";
             courseInput6.style.display = "none";
             courseInput7.style.display = "none";
-            courseInput8.style.display = "none";
             courseSubmit.style.display = "none";
             courseBtn.innerHTML = "פתח";
             isVisible = false;

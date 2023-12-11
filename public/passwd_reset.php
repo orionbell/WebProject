@@ -3,6 +3,7 @@
     if (!isset($_SESSION['resetpasswd'])) {
         header("Location: index.php");
     }
+    unset($_SESSION["resetpasswd"]);
 ?>
     <form action="includes/login_inc.php" method="post" class="signlogin_form">
         <h2 class="signin_title">איפוס סיסמה</h2>
@@ -28,8 +29,10 @@
             <?php
                 if (isset($_GET["error"])) {
                     if($_GET["error"] == "UserNotExists"){
+                        unset($_GETS["error"]);
                         echo "המייל לא קיים במערכת";
                     }else if($_GET["error"] == "EmptyInputs"){
+                        unset($_GETS["error"]);
                         echo "! זהו שדה חובה";
                     }
                 }

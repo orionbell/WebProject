@@ -79,28 +79,3 @@ link5.addEventListener("mouseout",() =>{
     link1.style.opacity = "1";
     link4.style.opacity = "1";
 })
-
-/***********************DELETE ACCOUNT************************** */
-const delete_open_btn = document.querySelector('#open_delete_btn')
-const delete_input = document.querySelector('#conf_del_input')
-const delete_label = document.querySelector('#delete_label')
-const delete_submit = document.querySelector('#conf_del_submit')
-delete_input.style.display = "none";
-delete_submit.style.display = "none";
-delete_label.style.display = "none";
-let isDelete = false;
-function showDeleteAccount() {
-    if(isDelete){
-        delete_open_btn.innerHTML = "מחק חשבון לצמיתות";
-        delete_input.style.display = "none";
-        delete_submit.style.display = "none";
-        delete_label.style.display = "none";
-        isDelete = false;
-    }else{
-        delete_open_btn.innerHTML = "סגור";
-        delete_input.style.display = "block";
-        delete_submit.style.display = "block";
-        delete_label.style.display = "block";
-        isDelete = true;
-    }
-}

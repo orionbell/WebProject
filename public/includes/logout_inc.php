@@ -5,7 +5,7 @@
         if ($_POST['delete_confirm'] == 'אני רוצה למחוק את המשתמש לצמיתות') {
             header("Location: ../verify.php?type=delete_account");
         }else{
-            header("Location: ../profile.php#delete_label?err=str_not_match");
+            header("Location: ../profile.php?delete_label?err=str_not_match");
         }
         
     }else{

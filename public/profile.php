@@ -25,7 +25,6 @@
                         }    
                 ?>
             </section>
-            
         <h2 class="ui_header">פרטים אישיים</h2>
             <form class="peronal_info_list" method="post" action="includes/change_info_inc.php">
                 <label class="name_ui" for="usrname">שם</label>
@@ -37,20 +36,27 @@
                         if (isset($_GET["error"])) {
                             if($_GET["error"] == "UsernameNotUnique" ){
                                 echo "שם המשתמש תפוס";
+                                unset($_GET["error"]);
                             }else if($_GET["error"] == "UsermailNotUnique" ){
                                 echo "המייל כבר בשימוש בחשבון אחר";
+                                unset($_GET["error"]);
                             }else if($_GET["error"] == "UsernameInvalid" ){
                                 echo "שם המשתמש אינו תקין";
+                                unset($_GET["error"]);
                             }else if($_GET["error"] == "EmailInvalid" ){
                                 echo "המייל אינו תקין";
+                                unset($_GET["error"]);
                             }else if($_GET["error"] == "EmptyInputs"){
                                 echo "נא למלא את כל התאים";
+                                unset($_GET["error"]);
                             }else if($_GET["error"] == "ChangeTimeNotExpired"){
                                 echo "לא עבר חודש מהפעם הקודמת ששינתה את הפרטים שלך <br>הפעם הבאה שניתן לשנות היא בתאריך ".$_GET["nextDateToChange"];
+                                unset($_GET["error"]);
                             }else if($_GET["error"] == "SameInfo"){
                                 echo "המידע שווה למידע הקודם<br> על מנת לשנות ליחצו על התוכן שאותו אתם רוצים לשנות ועירכו אותו";
                             }else{
                                 echo $_GET["error"];
+                                unset($_GET["error"]);
                             }
                         }
                     ?>
@@ -103,11 +109,7 @@
                             <h2 class="ui_header">יצירה או עדכון של קורס</h2>
                             <form class="peronal_info_list" method="post" action="./includes/new_course.php">
                             <div class="profile_blog_btn" id="course_btn1" onclick="displayCoursePanel()">פתח</div>
-<<<<<<< HEAD:public/profile.php
-                                <select name="course_topic"class="profile_blog_btn options_continer"  id="course_input1">
-=======
                                 <select name="course_topic"class="profile_blog_btn options_continer"  id="course_input3">
->>>>>>> e67bbfd19c5a6e26c7ea12963d45fe972b547895:profile.php
                                         <option>topic</option>
                                         <?php
                                             //getting all the options from the select directory
@@ -118,22 +120,12 @@
                                             }
                                         ?>
                                 </select>
-<<<<<<< HEAD:public/profile.php
-                                <input name="old_course_name" class="peronal_info_item" id="course_input2" placeholder="old course name" spellcheck="false">
-                                <input name="new_course_name" class="peronal_info_item" id="course_input3" placeholder="new course name" spellcheck="false">
-                                <input name="course_price" class="peronal_info_item" id="course_input4" placeholder="course price" spellcheck="false">
-                                <input name="course_discount" class="peronal_info_item" id="course_input5" placeholder="course discount" spellcheck="false">
-                                <input name="course_image" class="peronal_info_item" id="course_input6" placeholder="course image" spellcheck="false">
-                                <textarea name="course_description" class="peronal_info_item" id="course_input7" placeholder="course description" spellcheck="false"></textarea>
-                                <textarea name="course_subjects" class="peronal_info_item" id="course_input8" placeholder=">צריך להיות בצורה של רשימה כל נושא בשורה חדשה" spellcheck="false"></textarea>
-=======
                                 <input name="course_name" class="peronal_info_item" id="course_input1" placeholder="course name" spellcheck="false">
                                 <input name="course_price" class="peronal_info_item" id="course_input2" placeholder="course price" spellcheck="false">
                                 <input name="course_discount" class="peronal_info_item" id="course_input4" placeholder="course discount" spellcheck="false">
                                 <input name="course_image" class="peronal_info_item" id="course_input5" placeholder="course image" spellcheck="false">
                                 <textarea name="course_description" class="peronal_info_item" id="course_input6" placeholder="course description" spellcheck="false"></textarea>
                                 <textarea name="course_subjects" class="peronal_info_item" id="course_input7" placeholder="course subjects" spellcheck="false">צריך להיות בצורה של רשימה כל נושא בשורה חדשה</textarea>
->>>>>>> e67bbfd19c5a6e26c7ea12963d45fe972b547895:profile.php
                                 <input name="new_course" id="course_submit" class="profile_blog_btn " type="submit" value="שליחה">
                             </form>
                         </div>
@@ -161,7 +153,7 @@
                 <?php $_SESSION['delete_account'] = true;?>
             </form>
     </main>
-    
+    <script src="js/delete_account.js"></script>
 <?php
     if($username == "Admin"){
         echo '<script src="./js/admin_panel.js"></script>';

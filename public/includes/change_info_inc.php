@@ -29,7 +29,7 @@ if($is_same_name && $is_same_email){
     header("Location: ../profile.php?error=SameInfo");
     exit();
 }else{
-    $_SESSION['new_username'] = $username;
+    $_SESSION['new_username'] = $username; 
     $_SESSION['new_useremail'] = $usermail;
     $_SESSION['is_same_name'] = $is_same_name;
     $_SESSION['is_same_email'] = $is_same_email;

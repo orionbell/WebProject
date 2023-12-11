@@ -12,28 +12,36 @@
     }
     if (isset($_SESSION['dont_verify'])) 
     {
+        unset($_SESSION['dont_verify']);
         require_once "includes/dbh.php";
         change_user_info($_SESSION['new_username'],$_SESSION['new_useremail'],$_SESSION['is_same_name'],$_SESSION['is_same_email']);
     }
     if(isset($_POST["verify"])) {
         require_once "includes/dbh.php";
         $pincode = $_SESSION["pincode"];
+        unset($_SESSION['pincode']);
         if ($pincode == $_POST["pin"]) {
             if ($_GET['type'] == 'signin') {
-                add_user($_SESSION["username"],$_SESSION["useremail"],hash("sha256",$_SESSION["userpassword"]));
-                unset($_SESSION["pincode"]);
-                unset($_SESSION["username"]);
-                unset($_SESSION["useremail"]);
-                unset($_SESSION["userpassword"]);
+                $username = $_SESSION['username'];
+                $useremail = $_SESSION['useremail'];
+                $passwd = $_SESSION['userpassword'];
+                unset($_SESSION['userpassword']);
+                add_user($username,$useremail,hash("sha256",$passwd));
                 exit();
             }else if ($_GET['type'] == 'new_email') {
-                if (!isset($_SESSION['is_same_name'])){
-                    change_user_info($_SESSION['new_username'],$_SESSION['new_useremail'],$_SESSION['is_same_name'],$_SESSION['is_same_email']);
-                }else{
-                    change_user_info($_SESSION['username'],$_SESSION['new_useremail'],$_SESSION['is_same_name'],$_SESSION['is_same_email']);
-                }
+                $new_name = $_SESSION['new_username'];
+                $new_email = $_SESSION['new_useremail'];
+                $is_same_name = $_SESSION['is_same_name'];
+                $is_same_email = $_SESSION['is_same_email'];
+                unset($_SESSION["new_username"]);
+                unset($_SESSION["new_useremail"]);
+                unset($_SESSION["is_same_name"]);
+                unset($_SESSION["is_same_email"]);
+                change_user_info($new_name,$new_email,$is_same_name,$is_same_email);
+                exit();
             }else if ($_GET['type'] == 'delete_account') {
-                delete_user_from_db($_SESSION["useremail"]);
+                $useremail = $_SESSION['useremail'];
+                delete_user_from_db($useremail);
             }else if ($_GET['type'] == 'reset_password') {
                 $_SESSION['resetmail'] = $_SESSION["useremail"];
                 unset($_SESSION["useremail"]);
@@ -47,7 +55,7 @@
             header("Location: verify.php?type=".$_GET['type']."&error=PinNotMatch");
         }
     }
-    if (!isset($_SESSION['ERROR'])) {
+    if (!isset($_SESSION['error'])) {
         $pincode = rand(100000,999999);
         $_SESSION["pincode"] = $pincode;
         include_once('includes/mail.php');
@@ -62,8 +70,12 @@
         <?php
             if (isset($_GET["error"]) && isset($_SESSION['ERROR'])) {
                 if($_GET["error"] == "EmptyInputs"){
+                    unset($_SESSION["ERROR"]);
+                    unset($_GET["error"]);
                     echo "נא להכניס את הקוד";
                 }else if($_GET["error"] == "PinNotMatch" ){
+                    unset($_SESSION["ERROR"]);
+                    unset($_GET["error"]);
                     echo "הקוד אינו תואם למה שנשלח";
                 }
             }
