@@ -16,12 +16,24 @@
 ?>
     <main class="userui_contianer">
         <h2 class="ui_header">הקורסים שלי</h2>
-            <section class="my_courses_container">
+            <section class="my_courses_container" id="courses_container">
                 <?php
                         if (count(unserialize($user_courses)) <= 0) {
                             echo "<h2 class='empty_courses',><a href='./index.php' class'go_buy'>עדין לא קנית אף קורס לצפייה בקורסים לחץ</a></h2>";
                         }else{
-                            echo "";
+                            require_once "includes/dbh.php";
+                            foreach (unserialize($user_courses) as $course) {
+                                $course_info = get_course_info($course);
+                                echo '
+                                <a class="course_link" style="text-decoration:none;" href="course.php?subcourse='.$course.'&watch">
+                                    <div class="topic_container" style="color:var(--color'.random_int(1,4).');min-height:100%;">
+                                        <img src="imgs/'.$course_info['course_image'].'" alt="'.$course_info['course_name'].'" class="logo">
+                                        <p class="title">'.$course_info['course_name'].'</p>
+                                    </div>
+                                </a>
+                                ';
+                            }
+                            
                         }    
                 ?>
             </section>
@@ -153,7 +165,7 @@
                 <?php $_SESSION['delete_account'] = true;?>
             </form>
     </main>
-    <script src="js/delete_account.js"></script>
+    <script src="js/profile.js"></script>
 <?php
     if($username == "Admin"){
         echo '<script src="./js/admin_panel.js"></script>';

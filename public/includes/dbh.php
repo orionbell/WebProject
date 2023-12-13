@@ -202,8 +202,22 @@ function delete_blog_post($id){
         exit();
     }
 }
-function add_course_to_user($course_name){
-    
+function add_course_to_user($username,$course_name){
+    global $conn;
+    $courses = get_user_courses($username);
+    $courses = unserialize($courses);
+    array_push($courses,$course_name);
+    $courses = serialize($courses);
+    $_SESSION["user_courses"] = $courses;
+    $sql = "UPDATE users SET user_courses = ? WHERE user_name = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt,$sql)) {
+        echo "Something went wrong :(";
+    }else{
+        mysqli_stmt_bind_param($stmt,"ss",$courses, $username);
+        mysqli_stmt_execute($stmt);
+        header("Location: ../course.php?subcourse=$course_name&watch");
+    }
 }
 function delete_user_from_db($usermail){
     global $conn;

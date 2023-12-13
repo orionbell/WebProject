@@ -24,12 +24,21 @@
 .my_courses_container{
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
     padding: 2em 6em;
     margin: 1em 0;
     background-color: #262626;
     border-radius: 10px;
+    gap: 1em;
+    overflow: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
 }
+.my_courses_container::-webkit-scrollbar{
+    display: none;
+  }
 .my_courses_container .empty_courses{
     margin: 8em 0 ;
 }

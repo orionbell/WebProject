@@ -3,16 +3,25 @@
     require_once 'includes/dbh.php';
     $subcourse = $_GET["subcourse"];
     $info = get_course_info($subcourse);
-    $subcourse_nospaces = str_replace(' ', '',$subcourse);
-    $descript = $info["course_description"];
-    $course_img = $info["course_image"];
-    $total_price = $info["course_price"] * $info["course_discount"];
-    $total_price = number_format($total_price,2,".",",");
-    $subjects = unserialize($info["course_subjects"]);
-    if ($info["course_discount"] < 1) {
-        $discount_effect = 'new_btn_discount';
-    }else{
-        $discount_effect = '';
+    if (isset($_SESSION["username"]) && !isset($_GET["watch"])) {
+        if(in_array($subcourse,unserialize(get_user_courses($_SESSION['username'])))){
+            header('Location: course.php?subcourse='.$subcourse.'&watch');
+        }
+    }
+    if (!isset($_GET["watch"])){
+        $_SESSION['subcourse'] = $subcourse;
+        $info = get_course_info($subcourse);
+        $subcourse_nospaces = str_replace(' ', '',$subcourse);
+        $descript = $info["course_description"];
+        $course_img = $info["course_image"];
+        $total_price = $info["course_price"] * $info["course_discount"];
+        $total_price = number_format($total_price,2,".",",");
+        $subjects = unserialize($info["course_subjects"]);
+        if ($info["course_discount"] < 1) {
+            $discount_effect = 'new_btn_discount';
+        }else{
+            $discount_effect = '';
+        }
     }
 ?>
 <?php
@@ -21,7 +30,11 @@
         echo '<main class="course_container">
                 <div class="videolist_container">
                     <div class="course_video_container">
-                            <iframe class="video_box" src="https://drive.google.com/file/d/16D_c9RJH0SlHDjOhPriEtyRZ_QnZFS6M/preview" width="640" height="480" allow="autoplay"></iframe>
+                            
+                            <video class="video_box" width="640" height="480" controls controlsList="nodownload" >
+                                <source src="courses/python/vid.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                     </div>
                     <div class="playlist_videos_container">
                         <div class="course_list_item" >
@@ -87,14 +100,9 @@
                     <p class='desc_text'>נושאים הנלמדים בקורס:</p>
                     $subjects_list
                 </ul>
-                <form action='' method='post' class='buy_form $discount_effect'>
+                <form action='includes/add_course_to_user.php' method='post' class='buy_form $discount_effect'>
                     <input class='buy_btn' type='submit' value='קניית קורס $total_price ₪'>
                 </form>
-
-
-
-
-
             </div>
         </div>
         <br>

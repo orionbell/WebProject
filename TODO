@@ -1,19 +1,13 @@
-===צריך mail===
-    לסיים את הוספת הקורסים למשתמשים
-    ליצור את האדמין פאנל
-ליצור אפשרות לחסום משתמש מהאתר על עבירה על החוקים
+
+ליצור אפשרות לחסום משתמש מהאתר על עבירה על החוקים ?
 ליצור מצב בהיר - ?
 strip_tags()
 create a timer for the mail sender
-fix verification error crash the page ! (check the date of last change without sending email)
-
 remove uneeded css imports
-<<<<<<< HEAD
-logging functionality
+logging functionality ?
 
-
-fix the directories paths in the php files
-=======
-create the abilty to EDIT a course !!
-logging functionality
->>>>>>> e67bbfd19c5a6e26c7ea12963d45fe972b547895
+delete resources in admin panel
+add responsability for the new div 
+add payment gateway
+remake the course view page
+add security features (htaccess)

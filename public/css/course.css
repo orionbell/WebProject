@@ -36,6 +36,7 @@
     margin: 2em auto;
     color: white;
     text-align: center;
+    cursor: pointer;
 }
 .course_list_item:hover img{
     box-shadow: 0 0 1.5em white;
