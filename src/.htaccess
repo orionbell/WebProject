@@ -1,0 +1,14 @@
+
+## remove extentions - create the option to use clean urls
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^.]+)$ $1.php [NC,L]
+
+## Redirects from extention to non-extention 
+RewriteCond ${THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,NE,L]
+
+## disable Directory browsering
+Options All -Indexes

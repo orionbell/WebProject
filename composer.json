@@ -1,0 +1,26 @@
+{
+    "name": "root/app",
+    "description": "this is the composer file of the website",
+    "require": {
+        "omnipay/paypal": "^3.0",
+        "symfony/http-client": "^7.0",
+        "php-http/httplug": "^2.4",
+        "nyholm/psr7": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Root\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "WinterEffect",
+            "email": "yishaigame999@gmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
